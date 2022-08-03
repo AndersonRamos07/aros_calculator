@@ -12,6 +12,7 @@
   <div>
     <div id="visor">
       <p id="valor">off</p>
+      <p id="calculo">***</p>
     </div>
   </div>
 <div>
@@ -33,11 +34,11 @@
   <button onclick="insereNum(8)">8</button>
   <button onclick="insereNum(9)">9</button></div>
 <div class="btns opera">
-  <button onclick="">+</button>
-  <button onclick="">-</button>
-  <button onclick="">*</button>
-  <button onclick="">:</button>
-  <button onclick="">=</button>
+  <button onclick='operacao("soma")'>+</button>
+  <button onclick='operacao("subt")'>-</button>
+  <button onclick='operacao("mult")'>*</button>
+  <button onclick='operacao("divi")'>:</button>
+  <button onclick='calcular("equa")'>=</button>
 </div>
   </div>
   <script src="script.js">
