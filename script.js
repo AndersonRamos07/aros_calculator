@@ -1,7 +1,9 @@
 import Equacao, { Elemento, Operador } from "./models.js";
+/*
 import readJsonFile from "./functions.js";
 
 readJsonFile('base.json')
+*/
 
 const session = (p, q, v)=>{
     if(p == "out"){
