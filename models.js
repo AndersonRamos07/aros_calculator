@@ -10,8 +10,9 @@ export default class Equacao {
 }
 
 export class Elemento {
-    constructor(algarismo){
+    constructor(algarismo, sinal){
         this.elemento = algarismo
+        this.sinal = sinal
     }
     getElemento(){
         return this.elemento
@@ -19,6 +20,13 @@ export class Elemento {
     setElemento(algarismo){
         this.elemento = algarismo
         console.log(this.elemento + " formatado!")
+    }
+    getSinal(){
+        return this.sinal
+    }
+    setSinal(sinal){
+        this.sinal = sinal
+        console.log(this.sinal + " alterado!")
     }
 }
 
@@ -30,8 +38,8 @@ export class Operador {
         return this.operador
     }
     setOperador(operador){
-        this.operator = "-";
-        return console.log("alterado! ("+ this.operador + ")")
+        this.operator = operador;
+        return console.log("alterado para..." + this.operador)
     }
 }
 

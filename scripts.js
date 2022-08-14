@@ -1,93 +1,78 @@
 import Equacao, { Elemento, Operador } from "./models.js";
-/*
-import readJsonFile from "./functions.js";
-
-readJsonFile('base.json')
-*/
-
-const session = (p, q, v)=>{
-    if(p == "out"){
-        let valor = sessionStorage.getItem(q);
-        console.log(JSON.stringify(valor) + "<outSS>");
-        return valor;
-    }
-    if(p == "in"){
-        let valor = JSON.stringify(v);
-        console.log(valor + " <valor>")
-        return localStorage.setItem(q, valor);
-        console.log("foi adicionado!")
-    }
-}
 
 export default function domQS(p,q,v) {
     if(q == 0){
         let result = document.querySelector(p).innerHTML; 
-    return result;
-    }else if(q == 1){
+        return result;
+    }
+    else if(q == 1){
         return document.querySelector(p).innerHTML = v;
     }
-  else{
-      console.log(`parâmetros: ${p}, ${q}, ${v}`)
-      alert("Se liga nos parâmetros!")
-  }
-}
+    else{
+      console.log(`parâmetros: ${p}, ${q}, ${v}`);
+      alert("Se liga nos parâmetros!");
+    }
+};
 
 export const cSomente = ()=> domQS("#valor", 1, 0);
 
 export const capturaClique = (e)=>{
- let cliqueValue = e.target.value;
- let cliqueClasse = e.target.className;
- 
+    let cliqueValue = e.target.value;
+    let cliqueClasse = e.target.className;
+    
     if( cliqueClasse == "btnNum"){
-    return insereNum(cliqueValue);
+        return insereNumero(cliqueValue);
     }
-   if( cliqueClasse == "operacao"){
-       return operacao(cliqueValue)
-   }
-}
-export const insereNum = (p)=>{
-  let vis = mostraNoVisor();
-  if(vis){ domQS("#valor", 1, p) }
-  else{ porNoVisor(p); }
-}
+    if( cliqueClasse == "operacao"){
+        return operacao(cliqueValue);
+    }
+};
+
+export const insereNumero = (p)=>{
+    let valorNoVisor = mostraNoVisor();
+    if(valorNoVisor){ domQS("#valor", 1, p); }
+    else{ porNoVisor(p); }
+};
+
 export const mostraNoVisor = ()=>{
-  let now = domQS("#valor", 0, 0);
-  if(now == 0 || now == "off") return true
-  else {return false};
-}
+    let valorNoVisor = domQS("#valor", 0, 0);
+    if(valorNoVisor == 0 || valorNoVisor == "off") return true;
+    else { return false };
+};
+
 export const porNoVisor = (p)=>{
     if(p == "zerar"){
-        return domQS("#valor", 1, 0)
-    }else{
-    let valueBefore = domQS("#valor", 0, 0);
-    let valueFinal = valueBefore.concat(p);
-    return domQS("#valor", 1, valueFinal);
+        return domQS("#valor", 1, 0);
     }
-}
-
-//export const alertar = ()=>{ alert("conectou o modulo");}
+    else{
+        let valorAntes = domQS("#valor", 0, 0);
+        let valorDepois = valorAntes.concat(p);
+        return domQS("#valor", 1, valorDepois);
+    }
+};
 
 export const cEE = ()=>{
-  let dut = domQS("#valor", 0, 0);
-  let resultar = "";
-  if(dut.length == 1 && dut == 0){
-      console.log("é zero já!"); resultar = cSomente();
-  } else{
-    if(dut.length != 1){ resultar = dut.slice(0, -1); }
-      if(dut.length == 1){ resultar = cSomente(); }
-  }
-  return domQS("#valor", 1, resultar);
+    let valorNoVisor = domQS("#valor", 0, 0);
+    let resultar = "";
+    if(valorNoVisor.length == 1 && valorNoVisor == 0){
+        console.log("é zero já!"); resultar = cSomente();
+    }
+    else{
+        if(valorNoVisor.length != 1){ resultar = valorNoVisor.slice(0, -1); }
+        if(valorNoVisor.length == 1){ resultar = cSomente(); }
+    }
+    return domQS("#valor", 1, resultar);
 }
 
 export const operacao = (p)=>{
-    let initialTerm = domQS("#valor",0,0);
+    let valorAntes = domQS("#valor",0,0);
     let result = "";
-    if(initialTerm == "off"){ alert("off") }
-    if (initialTerm == 0 && p == "divi"){
+    if(valorAntes == "off"){ alert("off"); }
+    if (valorAntes == 0 && p == "divi"){
         alert("Impossível dividir por zero!");
         result = 0;
     }
-    result = definirOperador(p, initialTerm)
+    result = definirOperador(p, valorAntes);
     porNoVisor("zerar"); 
     let comOperando = domQS("#calculo", 1, result)
     return result;
@@ -96,8 +81,8 @@ export const operacao = (p)=>{
 export const definirOperador = (p, q)=>{
     let operador = "";
     let result = "";
-    let finalTerm = q[q.length - 1];
-    console.log(finalTerm + " <finalTerm>")
+    let valorDepois = q[q.length - 1];
+    //console.log(valorDepois + " <valorDepois>")
     switch(p){
         case "soma": operador = " +"; break;
         case "subt": operador = " -"; break;
