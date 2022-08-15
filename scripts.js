@@ -1,4 +1,4 @@
-import Equacao, { Elemento, Operador } from "./models.js";
+import Equacao, { Elemento, Operador, Operacao } from "./models.js";
 
 export default function domQS(p,q,v) {
     if(q == 0){
@@ -74,7 +74,7 @@ export const operacao = (p)=>{
     }
     result = definirOperador(p, valorAntes);
     porNoVisor("zerar"); 
-    let comOperando = domQS("#calculo", 1, result)
+    domQS("#calculo", 1, result)
     return result;
 }
 
@@ -82,6 +82,7 @@ export const definirOperador = (p, q)=>{
     let operador = "";
     let result = "";
     let valorDepois = q[q.length - 1];
+    console.log(`p: ${p} e q:${q}`)
     //console.log(valorDepois + " <valorDepois>")
     switch(p){
         case "soma": operador = " +"; break;
@@ -90,12 +91,22 @@ export const definirOperador = (p, q)=>{
         case "divi": operador = " /"; break;
     }
     result = q + operador;
+    salvar(q,p);
     return result;
+}
+export const salvar = (p, q)=>{
+    var elemento = new Elemento(p, q)
+    domQS("#primeiro", 1, elemento.getElemento())
+    domQS("#sinal", 1, elemento.getSinal())
 }
 
 export const calcular = ()=>{
-    var result = new Equacao("nada", "coisa alguma")
-    return result.calcular();
+    let primeiro = domQS("#primeiro",0,0)
+    let segundo = domQS("#valor",0,0)
+    let sinal = domQS("#sinal",0,0)
+    console.log(`primeiro: ${primeiro}, segundo: ${segundo} e sinal:${sinal}`)
+    var result = new Operacao(primeiro, segundo, sinal)
+    return result.qualSinal(sinal);
 }
 
 //export const somar = (n1, n2)

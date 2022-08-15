@@ -43,6 +43,49 @@ export class Operador {
     }
 }
 
+export class Operacao {
+    constructor(primeiro, segundo, sinal){
+        this.primeiro = parseInt(primeiro, 10)
+        this.segundo = parseInt(segundo, 10)
+        this.sinal = sinal
+    }
+    setSinal(sinal){
+        this.sinal = sinal
+        return console.log("Sinal alterado!")
+    }
+    somar(){
+        var resultado =  this.primeiro + this.segundo;
+        return console.log(`${this.primeiro} + ${this.segundo} = ${resultado}`)
+    }
+    subtrair(primeiro, segundo){
+        var resultado =  primeiro - segundo;
+        return console.log(`${primeiro} - ${segundo} = ${resultado}`)
+    }
+    multiplicar(primeiro, segundo){
+        var resultado =  primeiro * segundo;
+        return console.log(`${primeiro} x ${segundo} = ${resultado}`)
+    }
+    dividir(primeiro, segundo){
+        var resultado =  primeiro / segundo;
+        return console.log(`${primeiro} : ${segundo} = ${resultado}`)
+    }
+    qualSinal(){
+        switch(this.sinal){
+            case 'soma':
+                this.somar()
+                break;
+            case 'subt':
+                this.subtrair()
+                break;
+            case 'mult':
+                this.multiplicar()
+                break;
+            case 'divi':
+                this.dividir();
+        }
+    }
+}
+
 //definirOperador(get and set) nos operadores
 
 //elementos(get and set) neles e em seu conjunto numerico (naturais ou inteiros) sendo positivo ou negativo
