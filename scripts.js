@@ -1,4 +1,4 @@
-import Equacao, { Elemento, Operador, Operacao } from "./models.js";
+import Operacao, { Elemento, Equacao, Operador } from "./models.js";
 
 export default function domQS(p,q,v) {
     if(q == 0){
@@ -31,7 +31,7 @@ export const capturaClique = (e)=>{
 export const insereNumero = (p)=>{
     let valorNoVisor = mostraNoVisor();
     if(valorNoVisor){ domQS("#valor", 1, p); }
-    else{ porNoVisor(p); }
+    else{ porNoVisor(p, "#valor"); }
 };
 
 export const mostraNoVisor = ()=>{
@@ -40,14 +40,14 @@ export const mostraNoVisor = ()=>{
     else { return false };
 };
 
-export const porNoVisor = (p)=>{
+export const porNoVisor = (p,q)=>{
     if(p == "zerar"){
-        return domQS("#valor", 1, 0);
+        return domQS(q, 1, 0);
     }
     else{
-        let valorAntes = domQS("#valor", 0, 0);
+        let valorAntes = domQS(q, 0, 0);
         let valorDepois = valorAntes.concat(p);
-        return domQS("#valor", 1, valorDepois);
+        return domQS(q, 1, valorDepois);
     }
 };
 
@@ -73,7 +73,7 @@ export const operacao = (p)=>{
         result = 0;
     }
     result = definirOperador(p, valorAntes);
-    porNoVisor("zerar"); 
+    porNoVisor("zerar","#valor"); 
     domQS("#calculo", 1, result)
     return result;
 }
@@ -85,10 +85,10 @@ export const definirOperador = (p, q)=>{
     console.log(`p: ${p} e q:${q}`)
     //console.log(valorDepois + " <valorDepois>")
     switch(p){
-        case "soma": operador = " +"; break;
-        case "subt": operador = " -"; break;
-        case "mult": operador = " x"; break;
-        case "divi": operador = " /"; break;
+        case "soma": operador = " + "; break;
+        case "subt": operador = " - "; break;
+        case "mult": operador = " x "; break;
+        case "divi": operador = " / "; break;
     }
     result = q + operador;
     salvar(q,p);
@@ -106,7 +106,9 @@ export const calcular = ()=>{
     let sinal = domQS("#sinal",0,0)
     console.log(`primeiro: ${primeiro}, segundo: ${segundo} e sinal:${sinal}`)
     var result = new Operacao(primeiro, segundo, sinal)
-    return result.qualSinal(sinal);
+    porNoVisor(`${segundo} = ${result.equacionar()}`,"#calculo")
+    porNoVisor("zerar", "#valor")
+    return result.equacionar();
 }
 
 //export const somar = (n1, n2)
