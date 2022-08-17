@@ -1,16 +1,23 @@
+/*
+*   #fator = argumento
+*   #termo / teor / modo = parametro
+*   #valor = valor
+*
+*   #domqSaEL = dom(document), qS(querySelector), aEL(addEventListener)
+*/
 import Dom,
 {
     capturaClique,
     cSomente,
     cEE,
     calcular,
-    criar,
+    del,
     editar,
 }
 from "./scripts.js";
 
-function domqSaEL(p,q){
-    document.querySelector(p).addEventListener("click", q);
+function domqSaEL(termo,fator){
+    document.querySelector(termo).addEventListener("click", fator);
 };
 
 domqSaEL(".num", capturaClique);
@@ -18,5 +25,5 @@ domqSaEL(".opera", capturaClique);
 domqSaEL(".cSomente", cSomente);
 domqSaEL(".cEE", cEE);
 domqSaEL(".calcular", calcular);
-domqSaEL(".getE", criar);
+domqSaEL(".del", del);
 domqSaEL(".setE", editar);
