@@ -1,47 +1,37 @@
 export default class Operacao {
-    constructor(primeiro, segundo, sinal){
-        this.primeiro = parseInt(primeiro, 10)
-        this.segundo = parseInt(segundo, 10)
-        this.sinal = sinal
+    constructor(tPrimeiro, tSegundo, tSinal){
+        this.primeiro = parseInt(tPrimeiro, 10)
+        this.segundo = parseInt(tSegundo, 10)
+        this.sinal = tSinal
     }
-    setSinal(sinal){
-        this.sinal = sinal
+    getSinal(){
+        var sinal = "default";
+        switch(this.sinal){
+            case "soma" : sinal = "+"; break;
+            case "subt" : sinal = "-"; break;
+            case "mult" : sinal = "x"; break;
+            case "divi" : sinal = ":"; break;
+        }
+        return sinal;
+    }
+    setSinal(tSinal){
+        this.sinal = tSinal
         return console.log("Sinal alterado!")
     }
-    somar(){
-        var resultado =  this.primeiro + this.segundo;
-        console.log(`${this.primeiro} + ${this.segundo} = ${resultado}`)
-        return resultado;
-    }
-    subtrair(){
-        var resultado =  this.primeiro - this.segundo;
-        console.log(`${this.primeiro} - ${this.segundo} = ${resultado}`)
-        return resultado;
-    }
-    multiplicar(){
-        var resultado =  this.primeiro * this.segundo;
-        console.log(`${this.primeiro} * ${this.segundo} = ${resultado}`)
-        return resultado;
-    }
-    dividir(){
-        var resultado =  this.primeiro / this.segundo;
-        console.log(`${this.primeiro} : ${this.segundo} = ${resultado}`)
-        return resultado;
-    }
+    somar(){ return this.primeiro + this.segundo; }
+    subtrair(){ return this.primeiro - this.segundo; }
+    multiplicar(){ return this.primeiro * this.segundo; }
+    dividir(){ return this.primeiro / this.segundo; }
     equacionar(){
         var equacao = 0;
         switch(this.sinal){
-            case 'soma':
-                equacao = this.somar()
+            case 'soma': equacao = this.somar()
                 break;
-            case 'subt':
-                equacao = this.subtrair()
+            case 'subt': equacao = this.subtrair()
                 break;
-            case 'mult':
-                equacao = this.multiplicar()
+            case 'mult': equacao = this.multiplicar()
                 break;
-            case 'divi':
-                equacao = this.dividir();
+            case 'divi': equacao = this.dividir();
         }
         return equacao;
     }

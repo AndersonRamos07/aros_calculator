@@ -1,20 +1,17 @@
 import Operacao, { Elemento, Equacao, Operador } from "./models.js";
 
-export default function domQS(p,q,v) {
-    if(q == 0){
-        let result = document.querySelector(p).innerHTML; 
-        return result;
+export default function domQS(fator,termo,valor) {
+    if(termo == "out"){
+        return document.querySelector(fator).innerHTML;
     }
-    else if(q == 1){
-        return document.querySelector(p).innerHTML = v;
+    else if(termo == "in"){
+        return document.querySelector(fator).innerHTML = valor;
     }
     else{
       console.log(`parâmetros: ${p}, ${q}, ${v}`);
       alert("Se liga nos parâmetros!");
     }
 };
-
-export const cSomente = ()=> domQS("#valor", 1, 0);
 
 export const capturaClique = (e)=>{
     let cliqueValue = e.target.value;
@@ -28,31 +25,10 @@ export const capturaClique = (e)=>{
     }
 };
 
-export const insereNumero = (p)=>{
-    let valorNoVisor = mostraNoVisor();
-    if(valorNoVisor){ domQS("#valor", 1, p); }
-    else{ porNoVisor(p, "#valor"); }
-};
-
-export const mostraNoVisor = ()=>{
-    let valorNoVisor = domQS("#valor", 0, 0);
-    if(valorNoVisor == 0 || valorNoVisor == "off") return true;
-    else { return false };
-};
-
-export const porNoVisor = (p,q)=>{
-    if(p == "zerar"){
-        return domQS(q, 1, 0);
-    }
-    else{
-        let valorAntes = domQS(q, 0, 0);
-        let valorDepois = valorAntes.concat(p);
-        return domQS(q, 1, valorDepois);
-    }
-};
+export const cSomente = ()=> domQS("#painelPrincipal", "in", 0);
 
 export const cEE = ()=>{
-    let valorNoVisor = domQS("#valor", 0, 0);
+    let valorNoVisor = domQS("#painelPrincipal", "out", 0);
     let resultar = "";
     if(valorNoVisor.length == 1 && valorNoVisor == 0){
         console.log("é zero já!"); resultar = cSomente();
@@ -61,20 +37,50 @@ export const cEE = ()=>{
         if(valorNoVisor.length != 1){ resultar = valorNoVisor.slice(0, -1); }
         if(valorNoVisor.length == 1){ resultar = cSomente(); }
     }
-    return domQS("#valor", 1, resultar);
+    return domQS("#painelPrincipal", "in", resultar);
 }
 
-export const operacao = (p)=>{
-    let valorAntes = domQS("#valor",0,0);
+export const del = ()=>{
+    cSomente();
+    visor("#painelCalculo","incluir", "...")
+};
+
+
+export const insereNumero = (valor)=>{
+    let valorNoVisor = visor("#painelPrincipal", "checar", 0);
+    if(valorNoVisor){ domQS("#painelPrincipal", "in", valor); }
+    else{ 
+        let valorAntes = domQS("#painelPrincipal", "out", 0);
+        let valorDepois = valorAntes.concat(valor);
+        return domQS("#painelPrincipal", "in", valorDepois);
+     }
+};
+
+export const visor = (fator, termo, valor)=>{
+    switch(termo){
+        case "zerar": return domQS(fator, "in", 0);
+        break;
+        case "incluir": return domQS(fator, "in", valor);
+        break;
+        case "checar":
+            let valorNoVisor = domQS("#painelPrincipal", "out", 0);
+            if(valorNoVisor == 0 || valorNoVisor == "off") return true;
+            else { return false };
+        break;
+    }
+};
+
+export const operacao = (fator)=>{
+    let valorAntes = domQS("#painelPrincipal","out",0);
     let result = "";
     if(valorAntes == "off"){ alert("off"); }
-    if (valorAntes == 0 && p == "divi"){
+    if (valorAntes == 0 && fator == "divi"){
         alert("Impossível dividir por zero!");
         result = 0;
     }
-    result = definirOperador(p, valorAntes);
-    porNoVisor("zerar","#valor"); 
-    domQS("#calculo", 1, result)
+    result = definirOperador(fator, valorAntes);
+    visor("#painelPrincipal","zerar", 0); 
+    domQS("#painelCalculo", "in", result)
     return result;
 }
 
@@ -96,18 +102,18 @@ export const definirOperador = (p, q)=>{
 }
 export const salvar = (p, q)=>{
     var elemento = new Elemento(p, q)
-    domQS("#primeiro", 1, elemento.getElemento())
-    domQS("#sinal", 1, elemento.getSinal())
+    domQS("#primeiro", "in", elemento.getElemento())
+    domQS("#sinal", "in", elemento.getSinal())
 }
 
 export const calcular = ()=>{
-    let primeiro = domQS("#primeiro",0,0)
-    let segundo = domQS("#valor",0,0)
-    let sinal = domQS("#sinal",0,0)
+    let primeiro = domQS("#primeiro","out",0)
+    let segundo = domQS("#painelPrincipal","out",0)
+    let sinal = domQS("#sinal","out",0)
     console.log(`primeiro: ${primeiro}, segundo: ${segundo} e sinal:${sinal}`)
     var result = new Operacao(primeiro, segundo, sinal)
-    porNoVisor(`${segundo} = ${result.equacionar()}`,"#calculo")
-    porNoVisor("zerar", "#valor")
+    visor("#painelCalculo", "incluir",`${primeiro} ${result.getSinal()} ${segundo} = ${result.equacionar()}`)
+    visor("#painelPrincipal", "incluir", result.equacionar())
     return result.equacionar();
 }
 
