@@ -1,8 +1,12 @@
 import Operacao, { Elemento, Equacao, Operador } from "./models.js";
 
+const pPrincipal = "#painelPrincipal";  //id painelPrincipal
+const pCalculo = "#painelCalculo";      //id painelCalculo
+const pHistorico = "#painelHistorico"   //id painelHistorico
+
 export default function domQS(fator,termo,valor) {
     if(termo == "out"){
-        return document.querySelector(fator).innerHTML;
+        return document.querySelector(fator).innerHTML; // com o valor sendo "0" (zero)
     }
     else if(termo == "in"){
         return document.querySelector(fator).innerHTML = valor;
@@ -14,21 +18,21 @@ export default function domQS(fator,termo,valor) {
 };
 
 export const capturaClique = (e)=>{
-    let cliqueValue = e.target.value;
+    let cliqueValor = e.target.value;
     let cliqueClasse = e.target.className;
     
     if( cliqueClasse == "btnNum"){
-        return insereNumero(cliqueValue);
+        return insereNumero(cliqueValor);
     }
     if( cliqueClasse == "operacao"){
-        return operacao(cliqueValue);
+        return operacao(cliqueValor);
     }
 };
 
-export const cSomente = ()=> domQS("#painelPrincipal", "in", 0);
+export const cSomente = ()=> domQS(pPrincipal, "in", 0);
 
 export const cEE = ()=>{
-    let valorNoVisor = domQS("#painelPrincipal", "out", 0);
+    let valorNoVisor = domQS(pPrincipal, "out", 0);
     let resultar = "";
     if(valorNoVisor.length == 1 && valorNoVisor == 0){
         console.log("é zero já!"); resultar = cSomente();
@@ -37,22 +41,21 @@ export const cEE = ()=>{
         if(valorNoVisor.length != 1){ resultar = valorNoVisor.slice(0, -1); }
         if(valorNoVisor.length == 1){ resultar = cSomente(); }
     }
-    return domQS("#painelPrincipal", "in", resultar);
+    return domQS(pPrincipal, "in", resultar);
 }
 
 export const del = ()=>{
     cSomente();
-    visor("#painelCalculo","incluir", "...")
+    visor(pCalculo, "incluir", "...")
 };
 
-
 export const insereNumero = (valor)=>{
-    let valorNoVisor = visor("#painelPrincipal", "checar", 0);
-    if(valorNoVisor){ domQS("#painelPrincipal", "in", valor); }
+    let valorNoVisor = visor(pPrincipal, "checar", 0);
+    if(valorNoVisor){ domQS(pPrincipal, "in", valor); }
     else{ 
-        let valorAntes = domQS("#painelPrincipal", "out", 0);
+        let valorAntes = domQS(pPrincipal, "out", 0);
         let valorDepois = valorAntes.concat(valor);
-        return domQS("#painelPrincipal", "in", valorDepois);
+        domQS(pPrincipal, "in", valorDepois);
      }
 };
 
@@ -63,7 +66,7 @@ export const visor = (fator, termo, valor)=>{
         case "incluir": return domQS(fator, "in", valor);
         break;
         case "checar":
-            let valorNoVisor = domQS("#painelPrincipal", "out", 0);
+            let valorNoVisor = domQS(pPrincipal, "out", 0);
             if(valorNoVisor == 0 || valorNoVisor == "off") return true;
             else { return false };
         break;
@@ -71,25 +74,22 @@ export const visor = (fator, termo, valor)=>{
 };
 
 export const operacao = (fator)=>{
-    let valorAntes = domQS("#painelPrincipal","out",0);
-    let result = "";
+    let valorAntes = domQS(pPrincipal,"out",0);
+    let result;
     if(valorAntes == "off"){ alert("off"); }
     if (valorAntes == 0 && fator == "divi"){
         alert("Impossível dividir por zero!");
         result = 0;
     }
     result = definirOperador(fator, valorAntes);
-    visor("#painelPrincipal","zerar", 0); 
-    domQS("#painelCalculo", "in", result)
+    visor(pPrincipal,"zerar", 0); 
+    domQS(pCalculo, "in", result)
     return result;
 }
 
 export const definirOperador = (p, q)=>{
-    let operador = "";
-    let result = "";
-    let valorDepois = q[q.length - 1];
+    let operador, result;
     console.log(`p: ${p} e q:${q}`)
-    //console.log(valorDepois + " <valorDepois>")
     switch(p){
         case "soma": operador = " + "; break;
         case "subt": operador = " - "; break;
@@ -97,27 +97,41 @@ export const definirOperador = (p, q)=>{
         case "divi": operador = " / "; break;
     }
     result = q + operador;
-    salvar(q,p);
+    salvar(q, p);
     return result;
 }
-export const salvar = (p, q)=>{
-    var elemento = new Elemento(p, q)
+export const salvar = (fator, termo)=>{
+    var elemento = new Elemento(fator)
     domQS("#primeiro", "in", elemento.getElemento())
-    domQS("#sinal", "in", elemento.getSinal())
+    domQS("#sinal", "in", termo)
+    console.log(JSON.stringify(elemento))
+    return elemento.getElemento();
 }
 
 export const calcular = ()=>{
     let primeiro = domQS("#primeiro","out",0)
-    let segundo = domQS("#painelPrincipal","out",0)
+    let segundo = domQS(pPrincipal,"out",0)
     let sinal = domQS("#sinal","out",0)
-    console.log(`primeiro: ${primeiro}, segundo: ${segundo} e sinal:${sinal}`)
+    //console.log(`primeiro: ${primeiro}, segundo: ${segundo} e sinal:${sinal}`)
     var result = new Operacao(primeiro, segundo, sinal)
-    visor("#painelCalculo", "incluir",`${primeiro} ${result.getSinal()} ${segundo} = ${result.equacionar()}`)
-    visor("#painelPrincipal", "incluir", result.equacionar())
+    //console.log(result.getSinal() + ' <sinal>')
+    visor(pCalculo, "incluir",`${primeiro} ${result.getSinal()} ${segundo} = ${result.equacionar()}`)
+    visor(pPrincipal, "incluir", result.equacionar())
+    visor("#segundo", "incluir", segundo)
     return result.equacionar();
 }
 
-//export const somar = (n1, n2)
+export const maisOuMenos = (fator) =>{
+    let elemento = new Elemento (fator);
+    return elemento.setSinal();
+}
+
+export const showMemo = () =>{
+    let memoHidden = document.querySelector(pHistorico);
+    let isHidden = memoHidden.hasAttribute("hidden");
+    console.log(isHidden + " <isHidden>")
+    return isHidden ? memoHidden.removeAttribute("hidden"): memoHidden.setAttribute("hidden","");
+}
 
 var novoE;
 var novoO;

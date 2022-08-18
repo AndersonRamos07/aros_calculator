@@ -12,7 +12,8 @@ import Dom,
     cEE,
     calcular,
     del,
-    editar,
+    maisOuMenos,
+    showMemo
 }
 from "./scripts.js";
 
@@ -26,4 +27,5 @@ domqSaEL(".cSomente", cSomente);
 domqSaEL(".cEE", cEE);
 domqSaEL(".calcular", calcular);
 domqSaEL(".del", del);
-domqSaEL(".setE", editar);
+domqSaEL(".maisOuMenos", maisOuMenos);
+domqSaEL(".memo", showMemo);
