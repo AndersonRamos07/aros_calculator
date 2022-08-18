@@ -13,17 +13,17 @@
     <div id="visor">
       <p id="painelPrincipal">off</p>
       <p id="painelCalculo">...</p>
-      <p id="painelHistorico" hidden><span id="primeiro">*</span>*<span id="segundo"></span>*<span id="sinal">*</span>*</p>
+      <p id="painelHistorico" hidden>(<span id="primeiro">_</span>) (<span id="sinal">_</span>) (<span id="segundo">_</span>)</p>
     </div>
    <!-- <button onclick="bipar()">Alertar</button> -->
   </div>
-<div>
+<div class="allBtns">
 <div class="btns main">
   <button class="cSomente">C</button>
   <button class="cEE">CE</button>
-  <button class="getE">MEMO</button>
-  <button class="setE">QRTY</button>
   <button class="del">DEL</button>
+  <button class="maisOuMenos">&plusmn;</button>
+  <button class="memo">MEMO</button>
 </div>
 <div class="btns num">
   <button class="btnNum" value="0">0</button>
@@ -40,8 +40,8 @@
   <button class="operacao" value="soma">+</button>
   <button class="operacao" value="subt">-</button>
   <button class="operacao" value="mult">*</button>
-  <button class="operacao" value="divi">:</button>
-  <button class="calcular">=</button>
+  <button class="operacao" value="divi">&divide;</button>
+  <button class="equal calcular">=</button>
 </div>
   </div>
   <script type="module" src="./main.js" defer>
