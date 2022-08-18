@@ -5,12 +5,16 @@ export default class Operacao {
         this.sinal = tSinal
     }
     getSinal(){
-        var sinal = "default";
+        let sinal;
         switch(this.sinal){
-            case "soma" : sinal = "+"; break;
-            case "subt" : sinal = "-"; break;
-            case "mult" : sinal = "x"; break;
-            case "divi" : sinal = ":"; break;
+            case "soma" : sinal = "+"
+            break;
+            case "subt" : sinal = "-"
+            break;
+            case "mult" : sinal = "x"
+            break;
+            case "divi" : sinal = ":"
+            break;
         }
         return sinal;
     }
@@ -23,7 +27,7 @@ export default class Operacao {
     multiplicar(){ return this.primeiro * this.segundo; }
     dividir(){ return this.primeiro / this.segundo; }
     equacionar(){
-        var equacao = 0;
+        var equacao;
         switch(this.sinal){
             case 'soma': equacao = this.somar()
                 break;
@@ -49,24 +53,15 @@ export class Equacao {
 }
 
 export class Elemento {
-    constructor(algarismo, sinal){
-        this.elemento = algarismo
-        this.sinal = sinal
-    }
-    getElemento(){
-        return this.elemento
-    }
-    setElemento(algarismo){
-        this.elemento = algarismo
-        console.log(this.elemento + " formatado!")
-    }
+    constructor(algarismo){ this.elemento = parseInt(algarismo) }
+    getElemento(){ return this.elemento }
+    setElemento(algarismo){ this.elemento = algarismo }
     getSinal(){
-        return this.sinal
+        let sinal = Math.sign(this.elemento);
+        if(sinal == -1){ return "-"}
+        else{return "+"}
     }
-    setSinal(sinal){
-        this.sinal = sinal
-        console.log(this.sinal + " alterado!")
-    }
+    setSinal(){ return this.elemento * -1; }
 }
 
 export class Operador {
