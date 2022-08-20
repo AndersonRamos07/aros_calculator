@@ -129,7 +129,7 @@ export const maisOuMenos = (fator) =>{
 export const showMemo = () =>{
     let memoHidden = document.querySelector(pHistorico);
     let isHidden = memoHidden.hasAttribute("hidden");
-    console.log(isHidden + " <isHidden>")
+    //console.log(isHidden + " <isHidden>")
     return isHidden ? memoHidden.removeAttribute("hidden"): memoHidden.setAttribute("hidden","");
 }
 
