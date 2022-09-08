@@ -1,8 +1,0 @@
-{
-"id": 1,
-"dados": "strings, arrays e inteiros",
-"descricao": "teste com string",
-"arrayInteiros": [1, 3, 5, 7],
-"arrayABC": ["a", "b", "c"],
-"qtd": 7
-}
