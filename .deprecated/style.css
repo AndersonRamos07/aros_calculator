@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+#visor, .allBtns {
+  margin: 2%;
+  padding:2%;
+  border: 0.7px solid black;
+}
+
+.btns{
+  margin: 10% 0 5%;
+}
+
+.btnNum, .operacao, .equal{
+  padding: 5%;
+  margin: 2.5% 1.5% 1.5%;
+}
