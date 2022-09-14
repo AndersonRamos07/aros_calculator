@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/AndersonRamos07/aros_calculator/issues"
   },
-  "homepage": "https://github.com/AndersonRamos07/aros_calculator#readme"
+  "homepage": "https://github.com/AndersonRamos07/aros_calculator#readme",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "fs-extra": "^10.1.0",
+    "https": "^1.0.0",
+    "path": "^0.12.7",
+    "express": "^4.18.1"
+  }
 }
