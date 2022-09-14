@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>aros_calculator</title>
+    <link rel="Stylesheet" href="./style.css" />
+    <script src="./script.js"></script>
+    <script src="./btnNumbers.js"></script>
+    <script src="./btnSet.js"></script>
+</head>
+<body class="mainProject" onload="orientation()">
+    <div>
+        <h1>aros_calculator</h1>
+        <section id="orientation">portrait2</section> 
+    </div>
+    <div id="visor">
+        <label for="ligar">ligar
+            <input type="checkbox" name="ligar" id="ligar">
+        </label>
+      <p id="painelPrincipal">off</p>
+      <p id="painelCalculo">...</p>
+      <p id="painelHistorico" hidden>(<span id="primeiro">_</span>) (<span id="sinal">_</span>) (<span id="segundo">_</span>)(<span id="operando">_</span>)</p>
+    </div>
+<div class="allBtns">
+<div class="btns main">
+  <button class="cSomente">C</button>
+  <button class="cEE">CE</button>
+  <button class="del">DEL</button>
+  <button class="maisOuMenos">&plusmn;</button>
+  <button class="memo" onclick="sizes()">MEMO</button>
+</div>
+<div class="btns num">
+  <button class="btnNum" onclick="getNumber(0)">0</button>
+  <button class="btnNum" onclick="getNumber(1)" >1</button>
+  <button class="btnNum" onclick="getNumber(2)" >2</button>
+  <button class="btnNum" onclick="getNumber(3)" >3</button>
+  <button class="btnNum" onclick="getNumber(4)" >4</button>
+  <button class="btnNum" onclick="getNumber(5)" >5</button>
+  <button class="btnNum" onclick="getNumber(6)" >6</button>
+  <button class="btnNum" onclick="getNumber(7)" >7</button>
+  <button class="btnNum" onclick="getNumber(8)" >8</button>
+  <button class="btnNum" onclick="getNumber(9)" >9</button></div>
+<div class="btns opera">
+  <button class="operacao" value="soma">+</button>
+  <button class="operacao" value="subt">-</button>
+  <button class="operacao" value="mult">*</button>
+  <button class="operacao" value="divi">&divide;</button>
+  <button class="equal calcular">=</button>
+</div>
+  </div>
+</body>
+</html>
