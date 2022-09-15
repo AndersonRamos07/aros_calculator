@@ -1,4 +1,11 @@
-var largura = window.screen.width;
-var altura = window.screen.height;
+let width = window.innerWidth;
+let height = window.innerHeight;
 
-console.log(`${largura} e ${altura} respectivamente`);
+const orientation = () => {
+    let orientation = "";
+    width > height?
+    orientation = "landscape":
+    orientation = "portrait";
+    return document.querySelector("#orientation")
+    .innerHTML = orientation;
+};

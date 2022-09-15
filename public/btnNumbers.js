@@ -1,18 +1,20 @@
-const onOff = (id) => document.querySelector(id).checked;
+const getNumber = (number) => {
+    show(number);
+    console.log(onOff());
+};
 
 const getContent = () => {
-    let content = document.querySelector("#painelPrincipal").innerHTML;
-    switch(content){
-        case "off": false; break;
-        case "0": false; break;  
-    }                       
+    let content = onOff('#ligar');                      
 };
 
-const show = () => {
-    let content = getContent();
-    content == "off"? 0: "foi";
+function logIs (param){
+    let result = onOff(param);
+   // console.log(result);
+   // console.log(param);
+   // console.log(typeof param);
+};
+
+const show = (value) => {
+    let content = element('#painelCalculo');
+    console.log(value);
 }
-
-const getNumber = (digito) => {
-    getContent()
-};

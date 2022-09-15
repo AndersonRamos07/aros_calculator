@@ -1,11 +1,12 @@
-let width = window.screen.width;
-let height = window.screen.height;
+const element = (id) => document.querySelector(id);
 
-const orientation = () => {
-    let orientation = "";
-    width > height?
-    orientation = "landscape":
-    orientation = "portrait";
-    return document.querySelector("#orientation")
-    .innerHTML = orientation;
+const onOff = () => element('#onOff').checked? true : false;
+
+const toSwitch = (pToCheck) => {
+    let checked = element(pToCheck).checked;
+    let onOff = element('#painelPrincipal').innerText; 
+    checked?
+        onOff = "on":
+        onOff = "off";
+    return element('#onOff').innerText = onOff;
 };

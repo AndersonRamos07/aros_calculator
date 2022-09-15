@@ -11,11 +11,18 @@
   border-radius: 6.18%;
 }
 
-.btns, {
+.btns {
   margin: 6.18% 0 6.18%;
 }
 
 .btnNum, .operacao, .equal{
   padding: 6.18%;
   margin: 6.18% .618% .618%;
+}
+
+label{
+  border: 0.0618em solid #000;
+  padding: 0.618%;
+  border-radius: 6.18%;
+  cursor: pointer;
 }

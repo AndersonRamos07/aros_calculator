@@ -11,13 +11,14 @@
 <body class="mainProject" onload="orientation()">
     <div>
         <h1>aros_calculator</h1>
+        <span id="onOff">off</span>
         <section id="orientation">portrait2</section> 
     </div>
     <div id="visor">
-        <label for="ligar">ligar
-            <input type="checkbox" name="ligar" id="ligar">
+        <label for="switch">ligar
+            <input type="checkbox" name="switch" id="switch" onchange="toSwitch('#'+ this.id)" hidden>
         </label>
-      <p id="painelPrincipal">off</p>
+      <p id="painelPrincipal">.</p>
       <p id="painelCalculo">...</p>
       <p id="painelHistorico" hidden>(<span id="primeiro">_</span>) (<span id="sinal">_</span>) (<span id="segundo">_</span>)(<span id="operando">_</span>)</p>
     </div>
