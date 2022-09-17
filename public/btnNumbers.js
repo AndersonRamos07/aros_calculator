@@ -1,20 +1,12 @@
-const getNumber = (number) => {
-    show(number);
-    console.log(onOff());
+const getNumber = (pNumber) => {
+    let isItOn = element(pSwtc).checked;
+    isItOn?
+    show(pNumber) :
+    console.log(isItOn);
 };
 
-const getContent = () => {
-    let content = onOff('#ligar');                      
-};
-
-function logIs (param){
-    let result = onOff(param);
-   // console.log(result);
-   // console.log(param);
-   // console.log(typeof param);
-};
-
-const show = (value) => {
-    let content = element('#painelCalculo');
-    console.log(value);
+const show = (pValue) => {
+    let vElement = element(pMain);
+    console.log(pValue);
+    toSetLabel(vElement, pValue);
 }
