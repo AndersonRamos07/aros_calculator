@@ -8,6 +8,19 @@ const toSwitch = (pToCheck) => {
     return console.log("toSwitch");
 };
 
+const toEraseAll = () => {
+    toSetLabel(element(pMain), 0);
+};
+
+const toErase = () => {
+    let vElement = element(pMain);
+    let vElmText = vElement.innerText;
+    let vLastOne = vElmText.slice(0, -1);
+    vLastOne.length == 0?
+        toSetLabel(vElement, 0):
+        toSetLabel(vElement, vLastOne);
+};
+
 const toSetColor = (pElement, pColor) => pElement.style.color = pColor; //#1color
 
 const toSetLabel = (pElement, pLabel) => pElement.innerText = pLabel;            //#2label

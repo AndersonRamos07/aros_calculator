@@ -7,7 +7,7 @@ const getNumber = (pNumber) => {
 
 const toShow = (pValue) => {
     let vElement = element(pMain).innerText;
-    vElement == "."? 
+    vElement == "." || vElement == 0? 
        toMerge(0, pValue):
        toMerge(vElement, pValue);
 };
