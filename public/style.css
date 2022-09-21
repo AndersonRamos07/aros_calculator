@@ -2,27 +2,54 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /*
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    */
 }
 
-#visor, .allBtns{
-  margin: 6.18%;
-  padding:6.18%;
+#onOff{
+    padding: 0.618em;
+    /*margin: 0.618em;*/
+    border-radius: 50%;
+    font-size: 0.618em;
+}
+
+#visor, .allBtns{ /* #visor, */
+  margin: .618%;
+  padding: 0.618%;
   border: 0.618rem solid #000;
   border-radius: 6.18%;
+  /*border-collapse: separate;*/
+}
+
+p{
+    margin: 6.18%;
+    padding: 0.618%; 
 }
 
 .btns {
   margin: 6.18% 0 6.18%;
 }
 
-.btnNum, .operacao, .equal{
+.btnNum, .operacao, .equal, .setS{
   padding: 6.18%;
   margin: 6.18% .618% .618%;
 }
 
 label{
+  margin: 0.618%;
   border: 0.0618em solid #000;
   padding: 0.618%;
   border-radius: 6.18%;
   cursor: pointer;
+  display: flex;
+  justify-content: right;
+  width: 10vw;
+  /*align-items: right;*/
+}
+
+#painelCalculo{
+    text-align: right;
 }
