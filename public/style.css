@@ -16,11 +16,13 @@
     font-size: 0.618em;
 }
 
-#visor, .allBtns{ /* #visor, */
+.allBtns{
   margin: .618%;
   padding: 0.618%;
-  border: 0.618rem solid #000;
+  border: 0.0618rem solid #000;
   border-radius: 6.18%;
+  display: flex;
+  flex-direction: column;
   /*border-collapse: separate;*/
 }
 

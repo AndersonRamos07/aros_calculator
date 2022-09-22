@@ -1,24 +1,31 @@
-const toCreate = () => {
-    let numero = element(pMain).innerText;
-    return numero;
-}
-
 const toPut = (pOperador) => {
-    let num = `${toCreate()} ${toVerify(pOperador)} `;
-    let tr = element('tr');
-    let cell = document.createElement('td');
-    cell.append(num);
-    tr.append(cell);
-    toEraseAll();
-}
+    let vNumber = toGetNumber();
+    toSetLabel(element(pCalc), vNumber);
+    toCreate(pOperador);
+};
 
-const toVerify = (pOperador) => {
-    let result = "default";
-    switch(pOperador){
-        case "soma": result = "+"; break;
-        case "subt": result = "-"; break;
-        case "mult": result = "x"; break;
-        case "divi": result = "/"; break;
+const toGetNumber = () => {
+    return parseInt(element(pMain).innerText);
+};
+
+const toCreate = (pElement) => {
+    let vTr = element('tr');
+    let vContent = document.createElement('td');
+    vContent.append(pElement);
+    vTr.append(vContent);
+    toDefine(pElement, vContent);
+    toEraseAll();
+};
+
+const toDefine = (pValue, pElement) => {
+    var num = 0;
+    if(typeof pValue == "number"){
+        //pElement.setAttribute('grupo', 'valor');
+        pElement.classList.add('valor');
     }
-    return result;
+    if(typeof pValue == "string"){
+        //pElement.setAttribute('grupo', 'operador');
+        pElement.classList.add('operador');
+    }
+    return num++;
 };
