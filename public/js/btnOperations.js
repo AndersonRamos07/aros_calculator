@@ -18,14 +18,23 @@ const toCreate = (pElement) => {
 };
 
 const toDefine = (pValue, pElement) => {
-    var num = 0;
+    var num = document.querySelectorAll('td').length;
     if(typeof pValue == "number"){
-        //pElement.setAttribute('grupo', 'valor');
+        pElement.setAttribute('grupo', num);
         pElement.classList.add('valor');
     }
     if(typeof pValue == "string"){
-        //pElement.setAttribute('grupo', 'operador');
+    pElement.setAttribute('grupo', num);
+        pElement.setAttribute('hidden', true);
         pElement.classList.add('operador');
     }
-    return num++;
+    return true;
 };
+
+function ver (){
+    let getr = document.querySelectorAll('td');
+    for (let elem of getr){
+        console.log(elem.getAttribute('grupo'))
+    }
+    console.log(getr.length)
+}
