@@ -10,13 +10,13 @@
 }
 
 #onOff{
-    padding: 0.618em;
+    padding: calc(0.618*2)rem;
     /*margin: 0.618em;*/
     border-radius: 50%;
     font-size: 0.618em;
 }
 
-.allBtns{
+#visor, .allBtns{
   margin: .618%;
   padding: 0.618%;
   border: 0.0618rem solid #000;
@@ -32,7 +32,7 @@ p{
 }
 
 .btns {
-  margin: 6.18% 0 6.18%;
+  margin: calc(6.18/2)% 0 6.18%;
 }
 
 .btnNum, .operacao, .equal, .setS{

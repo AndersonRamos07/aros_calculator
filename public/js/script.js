@@ -8,13 +8,14 @@ const pMain = '#painelPrincipal';
 const pCalc = '#painelCalculo';
 const pHist = '#painelHistorico';
 
-const element = (id) => document.querySelector(id);
+const element = (pSelector) => document.querySelector(pSelector);
+
+const toGetNumber = () => parseInt(element(pMain).innerText);
 
 const orientation = () => {
     let orientation = "";
     width > height?
     orientation = "landscape":
     orientation = "portrait";
-    return document.querySelector("#orientation")
-    .innerHTML = orientation;
+    return element("#orientation").innerHTML = orientation;
 };
