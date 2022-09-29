@@ -43,4 +43,4 @@ function ver (){
         console.log(elem)
     }
     console.log(getr.length)
-}
+};
