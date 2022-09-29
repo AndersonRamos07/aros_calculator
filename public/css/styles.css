@@ -1,0 +1,12 @@
+aside{
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
+main{
+    display: flex;
+    /*flex-direction: row;*/
+    flex-flow: row wrap;
+    /*justify-content: space-around;*/
+    flex: 3;
+}
