@@ -1,0 +1,22 @@
+button{
+    margin: .618rem;
+    padding: 2px 15px 2px 15px;
+}
+#onoff{
+    margin: 1px;
+}
+#onOffDot{
+    float: right;
+}
+#onOffDot{
+    height: calc(6.18px*2);
+    width: calc(6.18px*2);
+    border-radius: 50%;
+    background-color: green;
+}
+
+#zero{
+}
+#dot{
+    /*padding: 0 1.5px 0 1.5px;*/
+}
