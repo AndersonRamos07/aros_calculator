@@ -8,8 +8,11 @@ header,
 nav,
 main,
 aside,
+section,
 footer{
-    border: 1px solid black;
+    margin: 1px;
+    padding: 1px;
+    /*border: 1px solid black;*/
 }
 
 section{

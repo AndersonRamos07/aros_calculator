@@ -1,12 +1,23 @@
-aside{
+body{
     display: flex;
     flex-direction: column;
-    float: right;
+    align-items: center;
+    justify-content: center;
 }
-main{
-    display: flex;
-    /*flex-direction: row;*/
-    flex-flow: row wrap;
-    /*justify-content: space-around;*/
-    flex: 3;
+header{
+    
+}
+section{
+    width:calc(100vw/1.2);
+    padding: 6.18% calc(6.18% / 2);
+    border-radius: 10%;
+}
+nav{
+    width:calc(100vw/1.2);
+    padding: .618% auto 0 auto;
+}
+aside{
+    margin-top: -125px;
+    padding-top: 0;
+    float: right;
 }

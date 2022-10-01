@@ -8,6 +8,16 @@ const toSwitch = (pToCheck) => {
     return console.log("toSwitch");
 };
 
+const toPower = () => {
+    let vDot = element(dot);
+    let vSwitch = element(pSwtc);
+    let vAble = vSwitch.getAttribute("disabled")
+    vDot.style.backgroundColor == "red"? toSetBG(vDot, "green"): toSetBG(vDot, "red");
+    vSwitch.innerText == "default" || vSwitch.innerText == "desligado"? vSwitch.innerText = "ligado": vSwitch.innerText = "desligado";
+    console.log(vAble)
+    return vAble == "false"? vSwitch.setAttribute("disabled", "true"): vSwitch.setAttribute("disabled", "false");
+}
+
 const toEraseAll = () => {
     toSetLabel(element(pMain), 0);
 };
@@ -20,34 +30,3 @@ const toErase = () => {
         toSetLabel(vElement, 0):
         toSetLabel(vElement, vLastOne);
 };
-
-const toSetColor = (pElement, pColor) => pElement.style.color = pColor; //#1color
-
-const toSetLabel = (pElement, pLabel) => pElement.innerText = pLabel;            //#2label
-
-const toSetBG = (pElement, pColor) => pElement.style.backgroundColor = pColor; //#3bgColor
-
-const toModify = (pElement, pStates, pLevel) =>{
-    switch(pLevel){
-        case "1":
-            toSetColor(pElement, pStates[0]); break;
-        case "2":
-            toSetLabel(pElement, pStates[0]); break;
-        case "3":
-            toSetBG(pElement, pStates[0]); break;
-        case "12":
-            toSetColor(pElement, pStates[0]);
-            toSetLabel(pElement, pStates[1]); break;
-        case "13":
-            toSetColor(pElement, pStates[0]);
-            toSetBG(pElement, pStates[1]); break;
-        case "23":
-            toSetLabel(pElement, pStates[0]);
-            toSetBG(pElement, pStates[1]); break;
-        case "123":
-            toSetColor(pElement, pStates[0]);
-            toSetLabel(pElement, pStates[1]);
-            toSetBG(pElement, pStates[2]); break;
-    }
-    return console.log("toModify");
-}

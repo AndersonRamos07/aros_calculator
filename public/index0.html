@@ -7,28 +7,31 @@
     <link rel="Stylesheet" href="./css/lines.css" />
     <link rel="Stylesheet" href="./css/txts.css" />
     <link rel="Stylesheet" href="./css/styles.css" />
+    <link rel="Stylesheet" href="./css/btns.css" />
     <script src="./js/script.js"></script>
     <script src="./js/btnNumbers.js"></script>
     <script src="./js/btnOperations.js"></script>
     <script src="./js/btnSet.js"></script>
 </head>
 <body>
+<p>body</p>
     <header>
-        <aside>
-            <p>off</p>
-        </aside>
-        
+    <p>header</p>
         <nav>
-            <button>[ on/off ]</button>
+         <p>nav</p>
+            <button id="onoff" onclick="toPower()">[ on/off ]</button>
+            <span id="onOffDot"></span>
         </nav>
         
         <section>
-            <article class="">_algarismo_</article>
+        <p>section</p>
+            <article><strong>_algarismo_</strong></article>
             <article class="rightTxt">_calculo_</article>
         </section>
     </header>
     
     <nav>
+    <p>nav</p>
         <button>[ C ]</button>
         <button>[ CE ]</button>
         <button>[ DEL ]</button>
@@ -36,29 +39,38 @@
     </nav>
     
     <main>
+    <p>main</p>
         <!--<button>[ 0 ]</button>-->
-        <button>[ 1 ]</button>
-        <button>[ 2 ]</button>
-        <button>[ 3 ]</button><br/>
-        <button>[ 4 ]</button>
-        <button>[ 5 ]</button>
-        <button>[ 6 ]</button><br/>
-        <button>[ 7 ]</button>
-        <button>[ 8 ]</button>
-        <button>[ 9 ]</button><br/>
-        <button>[ 0 ]</button>
-        <button>[ . ]</button>
-        
-        <aside>
-            <button>[ ÷ ]</button>
-            <button>[ × ]</button>
-            <button>[ - ]</button>
-            <button>[ + ]</button>  
-            <button>[ = ]</button>
-        </aside>
+        <section class="numbers">
+            <button>[ 1 ]</button>
+            <button>[ 2 ]</button>
+            <button>[ 3 ]</button><br/>
+            <button>[ 4 ]</button>
+            <button>[ 5 ]</button>
+            <button>[ 6 ]</button><br/>
+            <button>[ 7 ]</button>
+            <button>[ 8 ]</button>
+            <button>[ 9 ]</button><br/>
+            <button id="dot">[ . ]</button>
+            <button id="zero">[ 0 ]</button>
+            <button id="equals">[ = ]</button>
+            
+            <aside class="operators">
+            <p>aside</p>
+                <button>[ ÷ ]</button><br />
+                <button>[ × ]</button><br />
+                <button>[ - ]</button><br />
+                <button>[ + ]</button><br />
+            </aside>
+            
+        </section>
     
     </main>
     
-    <footer></footer>
+    <footer>
+    <p>footer</p>
+        <h1 class="centerTxt">FOOTER</h1>
+        <article id="switchTxt" disabled="false">default</article>
+    </footer>
 </body>
 </html>
