@@ -1,4 +1,4 @@
-body{
+/*body{
     margin:5px;
     padding:0;
     box-sizing: border-box;
@@ -12,10 +12,11 @@ section,
 footer{
     margin: 1px;
     padding: 1px;
-    /*border: 1px solid black;*/
+    border: 1px solid black;
 }
 
 section{
     color: white;
     background-color: gray;
 }
+*/

@@ -1,23 +1,11 @@
 body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: grid;
 }
 header{
-    
 }
 section{
-    width:calc(100vw/1.2);
-    padding: 6.18% calc(6.18% / 2);
-    border-radius: 10%;
 }
 nav{
-    width:calc(100vw/1.2);
-    padding: .618% auto 0 auto;
 }
 aside{
-    margin-top: -125px;
-    padding-top: 0;
-    float: right;
 }

@@ -4,15 +4,14 @@ button{
 }
 #onoff{
     margin: 1px;
-}
-#onOffDot{
     float: right;
 }
 #onOffDot{
+    float: left;
     height: calc(6.18px*2);
     width: calc(6.18px*2);
     border-radius: 50%;
-    background-color: green;
+    background-color: red;
 }
 
 #zero{
