@@ -9,7 +9,7 @@ const toSwitch = (pToCheck) => {
 };
 
 const toPower = () => {
-    let vDot = element(dot);
+    let vDot = element(pDot);
     let vSwitch = element(pSwtc);
     let vAble = vSwitch.getAttribute("disabled")
     vDot.style.backgroundColor == "red"? toSetBG(vDot, "green"): toSetBG(vDot, "red");
@@ -30,3 +30,9 @@ const toErase = () => {
         toSetLabel(vElement, 0):
         toSetLabel(vElement, vLastOne);
 };
+
+const isOn = () => {
+    let vOnOff = element(pSwtc)
+    let vIsOn = vOnOff.getAttribute("disabled");
+    return vIsOn == "false"? false: true;
+}

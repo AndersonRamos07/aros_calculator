@@ -2,7 +2,7 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 
 const pOnOff = '#onoff';
-const dot = '#onOffDot';
+const pDot = '#onOffDot';
 const pSwtc = '#switchTxt';
 
 const pMain = '#painelPrincipal';
