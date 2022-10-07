@@ -1,20 +1,20 @@
-const getNumber = (pNumber) => {
-    let vIsItOn = element(pSwtc).checked;
-    vIsItOn?
-    toShow(pNumber) :
-    console.log(vIsItOn);
+const getNumb = (pNumber) => {
+    let vIsItOn = element(pSwtc).getAttribute('disabled');
+    vIsItOn == "true"?
+        toShow(pNumber) :
+        log(vIsItOn);
 };
 
 const toShow = (pValue) => {
-    let vElement = element(pMain).innerText;
-    vElement == "." || vElement == 0? 
-       toMerge(0, pValue):
-       toMerge(vElement, pValue);
+    let vElement = element("strong");
+    let vElm = vElement.innerText;
+    vElm == 0 || vElm == "_algarismo_"?
+       toMerge(0, pValue, vElement):
+       toMerge(vElm, pValue, vElement);
 };
 
-const toMerge = (pValuePrev, pValueNext) =>{
-    let vElement = element(pMain);
+const toMerge = (pValuePrev, pValueNext, pElement) =>{
     pValuePrev >= 0?
-        toSetLabel(vElement, pValuePrev + pValueNext):
-        toSetLabel(vElement, pValueNext);
+        toSetLabel(pElement, pValuePrev + pValueNext):
+        toSetLabel(pElement, pValueNext);
 };

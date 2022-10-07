@@ -18,9 +18,9 @@
     <header>
     <p>header</p>
         <nav>
-         <p>nav</p>
-            <button id="onoff" onclick="toPower()">[ on/off ]</button>
+        <p>nav</p>
             <span id="onOffDot"></span>
+            <button id="onoff" onclick="toPower()">[ on/off ]</button>
         </nav>
         
         <section>
@@ -42,17 +42,17 @@
     <p>main</p>
         <!--<button>[ 0 ]</button>-->
         <section class="numbers">
-            <button>[ 1 ]</button>
-            <button>[ 2 ]</button>
-            <button>[ 3 ]</button><br/>
-            <button>[ 4 ]</button>
-            <button>[ 5 ]</button>
-            <button>[ 6 ]</button><br/>
-            <button>[ 7 ]</button>
-            <button>[ 8 ]</button>
-            <button>[ 9 ]</button><br/>
+            <button onclick="getNumb(1)">[ 1 ]</button>
+            <button onclick="getNumb(2)">[ 2 ]</button>
+            <button onclick="getNumb(3)">[ 3 ]</button><br/>
+            <button onclick="getNumb(4)">[ 4 ]</button>
+            <button onclick="getNumb(5)">[ 5 ]</button>
+            <button onclick="getNumb(6)">[ 6 ]</button><br/>
+            <button onclick="getNumb(7)">[ 7 ]</button>
+            <button onclick="getNumb(8)">[ 8 ]</button>
+            <button onclick="getNumb(9)">[ 9 ]</button><br/>
             <button id="dot">[ . ]</button>
-            <button id="zero">[ 0 ]</button>
+            <button id="zero" onclick="getNumb(0)">[ 0 ]</button>
             <button id="equals">[ = ]</button>
             
             <aside class="operators">
