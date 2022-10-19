@@ -1,4 +1,4 @@
-*{
+/*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,14 +8,15 @@
     align-items: center;
     */
 }
-
+/*
 #onOff{
     padding: calc(0.618*2)rem;
     /*margin: 0.618em;*/
     border-radius: 50%;
     font-size: 0.618em;
 }
-
+*/
+/*
 #visor, .allBtns{
   margin: .618%;
   padding: 0.618%;
@@ -55,3 +56,4 @@ label{
 #painelCalculo{
     text-align: right;
 }
+*/

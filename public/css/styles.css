@@ -3,9 +3,21 @@ body{
 }
 header{
 }
+main{
+    display: flex;  
+}
 section{
 }
 nav{
 }
 aside{
+}
+strong{
+}
+#visor{
+    padding: 20px 20px 0 30px;
+    margin: 5% 0;
+    height: 10vh;
+    background-color: #aaa;
+    border-radius: 10px;
 }

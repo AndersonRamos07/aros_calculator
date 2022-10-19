@@ -1,8 +1,7 @@
 const getNumb = (pNumber) => {
-    let vIsItOn = element(pSwtc).getAttribute('disabled');
-    vIsItOn == "true"?
+    isOn()?
         toShow(pNumber) :
-        log(vIsItOn);
+        log("sem chance");
 };
 
 const toShow = (pValue) => {

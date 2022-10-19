@@ -1,7 +1,7 @@
-const log = console.log;
-
 let width = window.innerWidth;
 let height = window.innerHeight;
+
+const context = '#context';
 
 const pOnOff = '#onoff';
 const pDot = '#onOffDot';
@@ -10,10 +10,16 @@ const pSwtc = '#switchTxt';
 const pMain = '#painelPrincipal';
 const pCalc = '#painelCalculo';
 const pHist = '#painelHistorico';
-
+/*
 const element = (pSelector) => document.querySelector(pSelector);
-
+*/
 const toGetNumber = () => parseInt(element(pMain).innerText);
+
+const turnOn = (pIsOn) => {
+    pIsOn? true:
+        confirm("Gostaria de ligá-la?")? log("sim"): log("nao")
+            
+};
 
 const orientation = () => {
     let orientation = "";

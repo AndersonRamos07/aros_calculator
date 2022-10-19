@@ -1,3 +1,18 @@
+const getContext = () => {
+    let doc = getElm(context);
+    let cod = getAtt(doc, "disabled");
+    let onf = getElm("#switchTxt");
+    if(cod == "true"){
+        let resp = toConfirm("ligar a calculadora", 1);
+        if(!resp){
+            alert("OK");
+        }
+        else{
+        setAtt(doc, "disabled", "false");
+        toModif(onf, "ligado")}
+    }
+};
+
 const toSwitch = (pToCheck) => {
     let vElement = element(pToCheck);
     let checked = vElement.checked;
@@ -12,10 +27,6 @@ const toPower = () => {
     let vDot = element(pDot);
     let vSwitch = element(pSwtc);
     let vAble = vSwitch.getAttribute("disabled")
-    vDot.style.backgroundColor == "red"? toSetBG(vDot, "green"): toSetBG(vDot, "red");
-    vSwitch.innerText == "default" || vSwitch.innerText == "desligado"? vSwitch.innerText = "ligado": vSwitch.innerText = "desligado";
-    console.log(vAble)
-    return vAble == "false"? vSwitch.setAttribute("disabled", "true"): vSwitch.setAttribute("disabled", "false");
 }
 
 const toEraseAll = () => {
@@ -34,5 +45,5 @@ const toErase = () => {
 const isOn = () => {
     let vOnOff = element(pSwtc)
     let vIsOn = vOnOff.getAttribute("disabled");
-    return vIsOn == "false"? false: true;
+    return vIsOn == "false"? turnOn(vIsOn): true;
 }
