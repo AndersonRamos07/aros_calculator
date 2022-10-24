@@ -1,49 +1,44 @@
 const getContext = () => {
-    let doc = getElm(context);
-    let cod = getAtt(doc, "disabled");
-    let onf = getElm("#switchTxt");
-    if(cod == "true"){
-        let resp = toConfirm("ligar a calculadora", 1);
-        if(!resp){
-            alert("OK");
-        }
-        else{
-        setAtt(doc, "disabled", "false");
-        toModif(onf, "ligado")}
+    let vContext = getElm(context);
+    let vOnOff = getElm(pDot);
+    let vAtt = getAtt(vContext, aDis);
+    let vSwitch = getElm(pSwtc);
+    if(vAtt == "false"){
+        let vResp = toConfirm("ligar a calculadora", 1);
+            if(!vResp){ alert("OK"); }
+                else{
+                    setAtt(vContext, aDis, true);
+                    setAtt(vSwitch, aDis, true);
+                    setAtt(vOnOff, "checked", true);
+                    toModif(vSwitch, "ligado");
+                    }
     }
 };
 
-const toSwitch = (pToCheck) => {
-    let vElement = element(pToCheck);
-    let checked = vElement.checked;
-    let onOff = element(pOnOff);
-    checked?
-        toModify(onOff, ["green", "on", "lightgreen"], "123"):
-        toModify(onOff, ["red", "off", "orange"], "123");
-    return console.log("toSwitch");
+const isOn = () => {
+    let vElm = getElm(pSwtc);
+    let vSwt = getAtt(vElm, aDis);
+    
+    return vSwt == "false"? false : true;
 };
 
-const toPower = () => {
-    let vDot = element(pDot);
-    let vSwitch = element(pSwtc);
-    let vAble = vSwitch.getAttribute("disabled")
-}
-
+// [ C ]
 const toEraseAll = () => {
-    toSetLabel(element(pMain), 0);
+    toSetLabel(getElm("strong"), 0);
 };
 
+// [ CE ]
 const toErase = () => {
-    let vElement = element(pMain);
+    let vElement = getElm("strong");
     let vElmText = vElement.innerText;
     let vLastOne = vElmText.slice(0, -1);
+    
     vLastOne.length == 0?
         toSetLabel(vElement, 0):
         toSetLabel(vElement, vLastOne);
 };
 
-const isOn = () => {
-    let vOnOff = element(pSwtc)
-    let vIsOn = vOnOff.getAttribute("disabled");
-    return vIsOn == "false"? turnOn(vIsOn): true;
-}
+const toChange = () => {
+    let vOnOff = getElm(pDot).checked;
+    log(vOnOff)
+};

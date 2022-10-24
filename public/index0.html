@@ -15,13 +15,13 @@
     <script src="./js/subFunctions.js"></script>
 </head>
 <body onclick="getContext()">
-    <div id="context" disabled="true">
+    <div id="context" disabled={false} >
 <p>body</p>
     <header>
     <p>header</p>
         <nav>
         <p>nav</p>
-            <input type="checkbox">
+            <input id="onOffDot" type="checkbox" onchange="toChange()">
         </nav>
         
         <section id="visor">
@@ -33,10 +33,10 @@
     
     <nav>
     <p>nav</p>
-        <button>[ C ]</button>
-        <button>[ CE ]</button>
+        <button onclick="toEraseAll()">[ C ]</button>
+        <button onclick="toErase()">[ CE ]</button>
         <button>[ DEL ]</button>
-        <button>[ MEMO ]</button>
+        <button onclick="toSwitch()">[ MEMO ]</button>
     </nav>
     
     <main>
@@ -75,7 +75,7 @@
     <footer>
     <p>footer</p>
         <h1 class="centerTxt">FOOTER</h1>
-        <article id="switchTxt" disabled="false">default</article>
+        <article id="switchTxt" disabled=true>default</article>
     </footer>
     </div>
 </body>

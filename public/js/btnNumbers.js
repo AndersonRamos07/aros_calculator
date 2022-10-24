@@ -5,8 +5,9 @@ const getNumb = (pNumber) => {
 };
 
 const toShow = (pValue) => {
-    let vElement = element("strong");
+    let vElement = getElm("strong");
     let vElm = vElement.innerText;
+    
     vElm == 0 || vElm == "_algarismo_"?
        toMerge(0, pValue, vElement):
        toMerge(vElm, pValue, vElement);
