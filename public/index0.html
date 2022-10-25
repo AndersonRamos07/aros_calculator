@@ -9,9 +9,6 @@
     <link rel="Stylesheet" href="./css/styles.css" />
     <link rel="Stylesheet" href="./css/btns.css" />
     <script src="./js/script.js"></script>
-    <script src="./js/btnNumbers.js"></script>
-    <script src="./js/btnOperations.js"></script>
-    <script src="./js/btnSet.js"></script>
     <script src="./js/subFunctions.js"></script>
 </head>
 <body onclick="getContext()">
@@ -43,20 +40,20 @@
     <p>main</p>
         <!--<button>[ 0 ]</button>-->
         <section class="numbers">
-            <button onclick="getNumb(1)">[ 1 ]</button>
-            <button onclick="getNumb(2)">[ 2 ]</button>
-            <button onclick="getNumb(3)">[ 3 ]</button>
+            <button value=1>[ 1 ]</button>
+            <button value="2">[ 2 ]</button>
+            <button value="3">[ 3 ]</button>
             <br/>
-            <button onclick="getNumb(4)">[ 4 ]</button>
-            <button onclick="getNumb(5)">[ 5 ]</button>
-            <button onclick="getNumb(6)">[ 6 ]</button>
+            <button value="4">[ 4 ]</button>
+            <button value="5">[ 5 ]</button>
+            <button value="6">[ 6 ]</button>
             <br/>
-            <button onclick="getNumb(7)">[ 7 ]</button>
-            <button onclick="getNumb(8)">[ 8 ]</button>
-            <button onclick="getNumb(9)">[ 9 ]</button>
+            <button value="7">[ 7 ]</button>
+            <button value="8">[ 8 ]</button>
+            <button value="9">[ 9 ]</button>
             <br/>
-            <button id="dot">[ . ]</button>
-            <button id="zero" onclick="getNumb(0)">[ 0 ]</button>
+            <button id="dot" value=".">[ . ]</button>
+            <button id="zero" value="0">[ 0 ]</button>
             <button id="equals">[ = ]</button>
          </section>
          
@@ -78,5 +75,8 @@
         <article id="switchTxt" disabled=true>default</article>
     </footer>
     </div>
+    <script src="./js/btnNumbers.js"></script>
+    <script src="./js/btnOperations.js"></script>
+    <script src="./js/btnSet.js"></script>
 </body>
 </html>
