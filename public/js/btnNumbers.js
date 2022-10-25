@@ -18,3 +18,10 @@ const toMerge = (pValuePrev, pValueNext, pElement) =>{
         toSetLabel(pElement, pValuePrev + pValueNext):
         toSetLabel(pElement, pValueNext);
 };
+
+const botao = document.querySelector(".numbers")
+
+botao.onclick = (event)=>{
+    let num = event.target.value
+    getNumb(num)
+}
