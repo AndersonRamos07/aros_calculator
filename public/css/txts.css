@@ -1,3 +1,11 @@
+@font-face{
+    font-family: digital;
+    src: url(../font/digital-7.ttf);
+}
+strong{
+    font: 50px digital;
+    
+}
 .rightTxt{
     text-align: right;
 }
