@@ -1,4 +1,7 @@
 const getNumb = (pNumber) => {
+    log(pNumber)
+    let io = isOn();
+    log(io)
     isOn()?
         toShow(pNumber) :
         log("sem chance");
@@ -7,6 +10,8 @@ const getNumb = (pNumber) => {
 const toShow = (pValue) => {
     let vElement = getElm("strong");
     let vElm = vElement.innerText;
+    log(vElement + " vElement")
+    log(vElm + " vElm")
     
     vElm == 0 || vElm == "_algarismo_"?
        toMerge(0, pValue, vElement):
