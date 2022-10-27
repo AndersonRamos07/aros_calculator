@@ -2,11 +2,16 @@
     font-family: digital;
     src: url(../font/digital-7.ttf);
 }
+@font-face{
+    font-family: digitalm;
+    src: url(../font/digital-7m.ttf);
+}
 strong{
     font: 50px digital;
     
 }
 .rightTxt{
+    font-family: digitalm;
     text-align: right;
 }
 .centerTxt{
