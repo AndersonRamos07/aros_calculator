@@ -1,3 +1,12 @@
+const toggleOnOff = document.querySelector(pDot);
+
+toggleOnOff.onchange = (event) => {
+    let vState = event.target.checked;
+    let vSwtc = document.querySelector(pSwtc);
+    log(vState)
+    return setAtt(vSwtc, aDis, vState);
+};
+/*
 const getContext = () => {
     let vContext = getElm(context);
     let vOnOff = getElm(pDot);
@@ -14,7 +23,7 @@ const getContext = () => {
                     }
     }
 };
-
+*/
 const isOn = () => {
     let vElm = getElm(pSwtc);
     let vSwt = getAtt(vElm, aDis);
@@ -42,3 +51,5 @@ const toChange = () => {
     let vOnOff = getElm(pDot).checked;
     log(vOnOff)
 };
+
+const toSwitch = () => log(getAtt(document.querySelector(pSwtc), aDis))

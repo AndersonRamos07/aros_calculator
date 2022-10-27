@@ -1,3 +1,4 @@
+/*
 const getNumb = (pNumber) => {
     log(pNumber)
     let io = isOn();
@@ -19,14 +20,21 @@ const toShow = (pValue) => {
 };
 
 const toMerge = (pValuePrev, pValueNext, pElement) =>{
+    log(pValuePrev + " pValuePrev")
+    log(pValueNext + " pValueNext")
+    log(pElement + " pElement")
     pValuePrev >= 0?
         toSetLabel(pElement, pValuePrev + pValueNext):
         toSetLabel(pElement, pValueNext);
 };
-
+*/
 const botao = document.querySelector(".numbers")
 
 botao.onclick = (event)=>{
     let num = event.target.value
     getNumb(num)
-}
+};
+
+const getNumb = (pNumber) => {
+    
+};
