@@ -1,56 +1,77 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>aros_calculator</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <title>aros_calculator</title>
+    <link rel="Stylesheet" href="./style.css" />
+    <script src="./js/script.js"></script>
+    <script src="./js/btnNumbers.js"></script>
+    <script src="./js/btnOperations.js"></script>
+    <script src="./js/btnSet.js"></script>
 </head>
-
-<body>
-  <div class="mainProject">
-    <div id="visor">
-      <p id="painelPrincipal">off</p>
-      <p id="painelCalculo">...</p>
-      <p id="painelHistorico" hidden>(<span id="primeiro">_</span>) (<span id="sinal">_</span>) (<span id="segundo">_</span>)</p>
+<body class="mainProject" onload="orientation()">
+    <div>
+        <h1>aros_calculator <span id="onOff">off</span></h1>
+        <section id="orientation">default</section> 
+        <label id="switchMainLeg" for="switchMain">
+            ligar
+            <input type="checkbox"
+                name="switchMain" id="switchMain"
+                onchange="toSwitch('#'+ this.id)"
+                hidden />
+        </label>
     </div>
-   <!-- <button onclick="bipar()">Alertar</button> -->
-  </div>
-<div class="allBtns">
-<div class="btns main">
-  <button class="cSomente">C</button>
-  <button class="cEE">CE</button>
-  <button class="del">DEL</button>
-  <button class="maisOuMenos">&plusmn;</button>
-  <button class="memo">MEMO</button>
-</div>
-<div class="btns num">
-  <button class="btnNum" value="0">0</button>
-  <button class="btnNum" value="1">1</button>
-  <button class="btnNum" value="2">2</button>
-  <button class="btnNum" value="3">3</button>
-  <button class="btnNum" value="4">4</button>
-  <button class="btnNum" value="5">5</button>
-  <button class="btnNum" value="6">6</button>
-  <button class="btnNum" value="7">7</button>
-  <button class="btnNum" value="8">8</button>
-  <button class="btnNum" value="9">9</button></div>
-<div class="btns opera">
-  <button class="operacao" value="soma">+</button>
-  <button class="operacao" value="subt">-</button>
-  <button class="operacao" value="mult">*</button>
-  <button class="operacao" value="divi">&divide;</button>
-  <button class="equal calcular">=</button>
-</div>
-  </div>
-  <script type="module" src="./main.js" defer>
-  </script>
- <!--
-This script places a badge on your repl's full-browser view back to your repl's cover page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green, teal, blue, blurple, magenta, pink!
--->
-<!--<script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer>
-</script>--> 
-</body>
+    <div id="visor">  
+      <p id="painelPrincipal">.</p>
+      <p id="painelCalculo">...</p>
+      <table id="painelHistorico"><tr></tr></table>
+    </div>
 
+    <div class="allBtns">
+        <div class="btns main">
+            <button class="cSomente setS"
+                onclick="toEraseAll()">
+                    C</button>
+            <button class="cEE setS" onclick="toErase()">
+                CE</button>
+            <button class="del setS">
+                DEL</button>
+            <button class="maisOuMenos setS">
+                &plusmn;</button>
+            <button class="memo setS" onclick="sizes()">
+                MEMO</button>
+        </div>
+        
+    <div class="btns num">
+        <button class="btnNum" onclick="getNumber(0)">
+            0</button>
+        <button class="btnNum" onclick="getNumber(1)" >
+            1</button>
+        <button class="btnNum" onclick="getNumber(2)" >
+            2</button>
+        <button class="btnNum" onclick="getNumber(3)" >
+            3</button>
+        <button class="btnNum" onclick="getNumber(4)" >
+            4</button>
+        <button class="btnNum" onclick="getNumber(5)" >
+            5</button>
+        <button class="btnNum" onclick="getNumber(6)" >
+            6</button>
+        <button class="btnNum" onclick="getNumber(7)" >
+            7</button>
+        <button class="btnNum" onclick="getNumber(8)" >
+            8</button>
+        <button class="btnNum" onclick="getNumber(9)" >
+            9</button>
+    </div>
+            
+    <div class="btns opera">
+        <button class="operacao" onclick="toPut('soma')">+</button>
+        <button class="operacao" onclick="toPut('subt')">-</button>
+        <button class="operacao" onclick="toPut('mult')">*</button>
+        <button class="operacao" onclick="toPut('divi')">&divide;</button>
+        <button class="equal calcular" onclick="ver()">=</button>
+    </div>
+  </div>
+</body>
 </html>
