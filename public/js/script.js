@@ -1,25 +1,23 @@
-let width = window.innerWidth;
-let height = window.innerHeight;
+//is it on?
 
-const context = '#context';
+const isOn = () => {
+let uio = getElm(pSwtc).getAttribute(aDis)
+log(uio)};
+// elements
+
+const eContext = '#context';
+const pDot = '#onOffDot';
+const eMain = '#main';
+const eStrong = 'strong';
+
 const aDis = 'disabled';
 const aCheck = 'checked';
-
 const pOnOff = '#onoff';
-const pDot = '#onOffDot';
 const pSwtc = '#switchTxt';
 
-const pMain = '#painelPrincipal';
-const pCalc = '#painelCalculo';
 const pHist = '#painelHistorico';
 
-const orientation = () => {
-    let orientation = "";
-    width > height?
-    orientation = "landscape":
-    orientation = "portrait";
-    return element("#orientation").innerHTML = orientation;
-};
+// functions
 
 const toSetColor = (pElement, pColor) => pElement.style.color = pColor;
 

@@ -1,34 +1,15 @@
-const toggleOnOff = document.querySelector(pDot);
+const toggleOnOff = getElm(pDot);
 
 toggleOnOff.onchange = (event) => {
     let vState = event.target.checked;
-    let vSwtc = document.querySelector(pSwtc);
-    log(vState)
+    let vSwtc = getElm(pSwtc);
+    log(vState); onOff(vState, vSwtc);
     return setAtt(vSwtc, aDis, vState);
 };
-/*
-const getContext = () => {
-    let vContext = getElm(context);
-    let vOnOff = getElm(pDot);
-    let vAtt = getAtt(vContext, aDis);
-    let vSwitch = getElm(pSwtc);
-    if(vAtt == "false"){
-        let vResp = toConfirm("ligar a calculadora", 1);
-            if(!vResp){ alert("OK"); }
-                else{
-                    setAtt(vContext, aDis, true);
-                    setAtt(vSwitch, aDis, true);
-                    setAtt(vOnOff, "checked", true);
-                    toModif(vSwitch, "ligado");
-                    }
-    }
-};
-*/
-const isOn = () => {
-    let vElm = getElm(pSwtc);
-    let vSwt = getAtt(vElm, aDis);
-    
-    return vSwt == "false"? false : true;
+
+const onOff = (pState, pElm) => {
+    pState? toModif(pElm, 'ligado') :
+        toModif(pElm, 'desligado');
 };
 
 // [ C ]
@@ -47,9 +28,21 @@ const toErase = () => {
         toSetLabel(vElement, vLastOne);
 };
 
-const toChange = () => {
-    let vOnOff = getElm(pDot).checked;
-    log(vOnOff)
+const inputVisor = (pNumber) => {
+    // is on?
+    let previous = getElm(eStrong).innerText;
+    let resp;
+    console.log(previous)
+    pNumber == "."? resp = dotar(pNumber, previous)
+    
+        previous == '_algarismo_' ||
+        previous == '0' ||
+        previous == 0?
+            showVisor(pNumber):
+            showVisor(previous + pNumber);
 };
 
-const toSwitch = () => log(getAtt(document.querySelector(pSwtc), aDis))
+const showVisor = (pDigit) => {
+   // is on?
+    getElm(eStrong).innerText = pDigit;
+};
