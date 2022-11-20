@@ -1,3 +1,42 @@
+@media (min-width: 320px)
+{
+    button
+    {
+        border: none;
+    }
+    #dot
+    {
+        border-radius: 15px 50px 30px;
+    }
+    .numbers > button
+    {
+        border-radius: 15px 50px
+    }
+    .operators > button
+    {
+        border-radius: 15px 50px;
+        width: 100px;
+    }
+    
+    nav > button
+    {
+        border-radius: 15px 50px 30px;
+    }
+    button[value="soma"]
+    {
+        border-radius: 5px 15px 50px 30px;
+        width: 100px;
+    }
+    #ce
+    {
+        border-radius: 50px 5px 15px 30px;
+    }
+    #memo
+    {
+        border-radius: 15px 50px 30px 5px;
+        width: 100px;
+    }
+}
 button{
     margin: .618rem;
     padding: 2px 15px 2px 15px;

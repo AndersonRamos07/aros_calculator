@@ -1,5 +1,21 @@
-body{
-    display: grid;
+@media (min-width: 320px)
+{
+    body
+    {
+        background-color: #c7c7c7;
+        display: flex;
+        justify-content
+    };
+    #main
+    {
+        width: 95vw;
+        border: 1px solid black;
+    };
+    main
+    {
+        width: 95vw;
+        border: 1px solid black;
+    }
 }
 header{
 }
@@ -14,7 +30,7 @@ aside{
 }
 strong{
 }
-#visor{
+#main{
     padding: 20px 20px 0 30px;
     margin: 5% 0;
     height: 10vh;
