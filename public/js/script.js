@@ -1,26 +1,18 @@
-//is it on?
+let log = console.log;
 
-const isOn = () => {
-let uio = getElm(pSwtc).getAttribute(aDis)
-log(uio)};
-// elements
+let elementDOM = (pSelector, pType) => {
+    if(pType == 1)
+        return document.querySelector(pSelector)
+    else
+        return document.querySelectorAll(pSelector)
+};
 
-const eContext = '#context';
-const pDot = '#onOffDot';
-const eMain = '#main';
-const eStrong = 'strong';
+let eventListener = (pVar, pType, pCallback) => {
+    pVar.addEventListener(pType, (e) => {
+        pCallback(e);
+    })
+};
 
-const aDis = 'disabled';
-const aCheck = 'checked';
-const pOnOff = '#onoff';
-const pSwtc = '#switchTxt';
-
-const pHist = '#painelHistorico';
-
-// functions
-
-const toSetColor = (pElement, pColor) => pElement.style.color = pColor;
-
-const toSetLabel = (pElement, pLabel) => pElement.innerText = pLabel;
-
-const toSetBG = (pElement, pColor) => pElement.style.backgroundColor = pColor;
+let handleTextContent = (pElement, pContent) => {
+     return pElement.textContent = pContent;
+}
