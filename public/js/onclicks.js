@@ -8,7 +8,7 @@ let btn_CE = elementDOM('#btnCE', 1);
 let btn_DEL = elementDOM('#btncDEL', 1);
 let btn_MEMO = elementDOM('#btnMEMO', 1);
 
-let btn_DOT = elementDOM('#btnDEL', 1);
+let btn_DOT = elementDOM('#btnDOT', 1);
 let btn_EQUALS = elementDOM('#btnEQUALS', 1);
 
 let dataList = elementDOM('datalist', 1);
