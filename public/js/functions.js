@@ -1,11 +1,11 @@
 // [ Visor ]
-const toCheck = (pValue) =>
-    visor_Main.innerText == "0" && visor_Main.innerText.length == 1? log("insere novo"): log("adiciona ao valor");
-
-const toShow = (pValue) => {
-    let vTog = toCheck(pValue, toPut);
-    return visor_Main.textContent = pValue;
+const toCheck = (pValue) =>{
+    let resp;
+    visor_Main.innerText == "0" && visor_Main.innerText.length == 1? resp = false: resp = true;
+    return toPut(visor_Main.textContent, pValue, resp);
 };
+
+const toShow = (pValue) => visor_Main.textContent = pValue;
 
 const toPut = (pValuePrev, pValueAdd, pTog) => {
     pTog? toShow(pValuePrev + pValueAdd):
@@ -21,17 +21,28 @@ const toClear = () => {
     let vLastOne = vElmText.slice(0, -1);
     
     vLastOne.length == 0?
-        vElement.textContent = 0:
-        vElement.textContent = vLastOne;
+        visor_Main.textContent = 0:
+        visor_Main.textContent = vLastOne;
 };
 
 // [ 0 ~ 9 . = ]
 const getDigit = (e) => {
     e.stopPropagation()
     let vDigit = e.currentTarget.value;
-    log(vDigit);
+    vDigit == "."?
+        vDigit = toDot(vDigit):
+        log("é número");
+        
     toCheck(vDigit);
     return e.currentTarget.value;
+};
+
+const toDot = (pDot) =>{
+    let resp;
+    visor_Main.textContent.includes(".")?
+        resp = "":
+        resp = ".";
+    return resp;
 };
 
 // [ Operators ]
