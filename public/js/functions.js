@@ -7,18 +7,31 @@ const toCheck = (pValue) =>{
     return toPut(visor_Main.textContent, pValue, resp);
 };
 
-const toShow = (pValue) => visor_Main.textContent = pValue;
+const toShow = (pValue, pVisor) => {
+    pVisor == undefined? visor_Main.textContent = pValue:
+    pVisor.textContent = pValue;
+};
 
-const toPut = (pValuePrev, pValueAdd, pTog) => {
-    pTog? toShow(pValuePrev + pValueAdd):
-        toShow(pValueAdd);
+const toPut = (pValuePrev, pValueAdd, pTog, pVisor) => {
+    if(pVisor == undefined){
+        pTog? toShow(pValuePrev + pValueAdd, pVisor):
+        toShow(pValueAdd, pVisor);
+    }else{
+        pTog? toShow(pValuePrev + pValueAdd, pVisor):
+        toShow(pValueAdd, pVisor);
+    }
 };
 
 // [ C - Clear ]
 const toZero = (pElement) => {
+    log(pElement.length)
+    pElement == undefined? log("foi"): log("foi não");
+    /*
     pElement == undefined?
         visor_Main.textContent = 0:
         pElement.textContent = 0;
+        //console.log(pElement.innerHTML)
+        */
 };
 
 // [ CE - Clear Entry ]
@@ -68,23 +81,31 @@ const getOperator = (e) => {
         case "soma": i = 0; break;            
     }
     toZero();
-    toCreateAlgharism(resp);
-    toCreateAlgharism(operator[i]);
-    return visor_Sub.innerText == "0"?
-    visor_Sub.innerText = resp + operator[i]:
-    visor_Sub.innerText += resp + operator[i];
+    let alg = new Algharism(resp);
+    alg.toLog();
+    toPut(0, alg.value, false, visor_Sub)
 };
 
 // [ Calculate ]
-const toCalculate = (pValue) => {
-    log(`pValue: ${pValue}`)
+const toCalculate = () => {
+    log("foi")
+    alert("eh doido!")
 };
 
 const toCreateAlgharism = (pValue) => {
+    let qtd = document.querySelectorAll('thead > td');
+    let algL = document.createElement('td');
     let alg = document.createElement('td');
-    alg.append(pValue);
-    log(alg.textContent + " <algarismo>")
+    let titleL = document.querySelector('thead');
     let linha = document.querySelector('tr');
+    
+    alg.append(pValue);
+    algL.append(qtd.length);
     linha.append(alg);
+    titleL.append(algL);
+    
+    log(alg.textContent + " <algarismo>")
     log(linha.textContent + " <linha>")
+    log(qtd.length + " <qtd.length>")
+    
 };

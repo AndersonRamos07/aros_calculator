@@ -20,20 +20,15 @@ let tb = elementDOM('table', 1);
 
 // ******* SUB_ELEMENTS
 
-let operator = [ " + " , " - " , " x " , " ÷ " ]
-/*
-let vM_txtC = visor_Main.textContent;
-let vM_iTxt = visor_Main.innerText;
-
-let vS_txtC = visor_Sub.textContent;
-let vS_iTxt = visor_Sub.innerText;
-*/
+let operator = [ " + " , " - " , " x " , " ÷ " ];
 
 // ******* EVENTS
 
 eventListener(btn_C, 'click', toZero);
 eventListener(btn_CE, 'click', toClear);
 eventListener(btn_DEL, 'click', toDel);
+eventListener(btn_EQUALS, 'click', toCalculate);
+eventListener(btn_MEMO, 'click', toPutTable);
 
 btns_NUMB.forEach(
     btn => btn.addEventListener('click', getDigit,
@@ -44,5 +39,3 @@ btns_OPERATORS.forEach(
     btn => btn.addEventListener('click', getOperator,
             {capture: false})
 );
-
-//eventListener(btn_MEMO, 'click', toCreateEquation)
