@@ -24,8 +24,8 @@ let operator = [ " + " , " - " , " x " , " ÷ " ];
 
 // ******* EVENTS
 
-eventListener(btn_C, 'click', toZero);
-eventListener(btn_CE, 'click', toClear);
+eventListener(btn_C, 'click', toClear);
+eventListener(btn_CE, 'click', toClearIn);
 eventListener(btn_DEL, 'click', toDel);
 eventListener(btn_EQUALS, 'click', toCalculate);
 eventListener(btn_MEMO, 'click', toPutTable);

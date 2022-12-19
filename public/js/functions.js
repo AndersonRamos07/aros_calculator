@@ -22,23 +22,18 @@ const toPut = (pValuePrev, pValueAdd, pTog, pVisor) => {
     }
 };
 
-// [ C - Clear ]
 const toZero = (pElement) => {
-    log(pElement.length)
-    pElement == undefined? log("foi"): log("foi não");
-    /*
-    pElement == undefined?
-        visor_Main.textContent = 0:
-        pElement.textContent = 0;
-        //console.log(pElement.innerHTML)
-        */
+    pElement != undefined? pElement.textContent = 0: visor_Main.textContent = 0
 };
 
+// [ C - Clear ]
+const toClear = () => toZero();
+
 // [ CE - Clear Entry ]
-const toClear = () => {
+const toClearIn = () => {
     let vLastOne = visor_Main.innerText.slice(0, -1);
     vLastOne.length == 0?
-        visor_Main.textContent = 0:
+        toZero():
         visor_Main.textContent = vLastOne;
 };
 
