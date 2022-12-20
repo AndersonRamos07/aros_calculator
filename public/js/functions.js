@@ -1,4 +1,4 @@
-// [ Visor ]
+//#region [ Visor ]
 const toCheck = (pValue) =>{
     let resp;
     visor_Main.innerText == "0" &&
@@ -21,13 +21,14 @@ const toPut = (pValuePrev, pValueAdd, pTog, pVisor) => {
         toShow(pValueAdd, pVisor);
     }
 };
+//#endregion
 
 const toZero = (pElement) => {
     pElement != undefined?
         pElement.textContent = 0:
         visor_Main.textContent = 0
 };
-
+//#region [ Nav Buttons ]
 // [ C - Clear ]
 const toClear = () => toZero();
 
@@ -44,6 +45,7 @@ const toDel = () => {
     toZero();
     toZero(visor_Sub);
 };
+//#endregion
 
 // [ 0 ~ 9 . = ]
 const getDigit = (e) => {
@@ -51,18 +53,11 @@ const getDigit = (e) => {
     let vDigit = e.currentTarget.value;
         vDigit == "."?
             vDigit = toDot(vDigit):
-            vDigit == "="?
+            log(`e numero`);
+            /*vDigit == "="?
                 toCalculate(vDigit):
-                toCheck(vDigit);
-            
-            /*
-             vDigit == "."?
-            vDigit = toDot(vDigit):
-            log("é número");
-        vDigit == "="?
-            toCalculate(vDigit):
-            toCheck(vDigit);
-            */
+                */
+               toCheck(vDigit);
     return vDigit;
 };
 
@@ -79,16 +74,18 @@ const getOperator = (e) => {
     let i;
     let vOperator = getDigit(e);
     let resp = visor_Main.textContent.slice(0, -4);
-    switch(vOperator){
+    switch(vOperator)
+    {
         case "divi": i = 3; break;
         case "mult": i = 2; break;
         case "subt": i = 1; break;
         case "soma": i = 0; break;            
     }
     toZero();
-    let alg = new Algharism(resp);
-    alg.toLog();
-    toPut(0, alg.value, false, visor_Sub)
+    let alg = new Algharism(resp); //alg.toLog();
+    toPut(0, alg.value + operator[i], false, visor_Sub)
+    toCreateAlgharism(alg.value);
+    toCreateAlgharism(operator[i]);
 };
 
 // [ Calculate ]
