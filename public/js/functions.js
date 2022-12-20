@@ -23,7 +23,9 @@ const toPut = (pValuePrev, pValueAdd, pTog, pVisor) => {
 };
 
 const toZero = (pElement) => {
-    pElement != undefined? pElement.textContent = 0: visor_Main.textContent = 0
+    pElement != undefined?
+        pElement.textContent = 0:
+        visor_Main.textContent = 0
 };
 
 // [ C - Clear ]
@@ -49,10 +51,18 @@ const getDigit = (e) => {
     let vDigit = e.currentTarget.value;
         vDigit == "."?
             vDigit = toDot(vDigit):
+            vDigit == "="?
+                toCalculate(vDigit):
+                toCheck(vDigit);
+            
+            /*
+             vDigit == "."?
+            vDigit = toDot(vDigit):
             log("é número");
         vDigit == "="?
             toCalculate(vDigit):
             toCheck(vDigit);
+            */
     return vDigit;
 };
 
