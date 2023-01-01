@@ -1,10 +1,7 @@
 //#region [ Visor ]
 const toCheck = (pValue) =>{
-    let resp;
-    visor_Main.innerText == "0" &&
-        visor_Main.innerText.length == 1?
-            resp = false: resp = true;
-    return toPut(visor_Main.textContent, pValue, resp);
+    toShow(pValue)
+    return log(pValue);
 };
 
 const toShow = (pValue, pVisor) => {
@@ -51,14 +48,7 @@ const toDel = () => {
 const getDigit = (e) => {
     e.stopPropagation()
     let vDigit = e.currentTarget.value;
-        vDigit == "."?
-            vDigit = toDot(vDigit):
-            log(`e numero`);
-            /*vDigit == "="?
-                toCalculate(vDigit):
-                */
-               toCheck(vDigit);
-    return vDigit;
+    toCheck(vDigit);
 };
 
 const toDot = (pDot) =>{
