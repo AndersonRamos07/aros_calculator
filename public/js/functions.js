@@ -1,7 +1,32 @@
 //#region [ Visor ]
 const toCheck = (pValue) =>{
-    toShow(pValue)
-    return log(pValue);
+    let resp;
+    if(pValue == 9 || pValue < 9)
+    {
+        toPut(calc_values[pValue], 0)
+        resp = "numeros: " + pValue
+    }
+    if(pValue == 13 || pValue < 13 && pValue > 9)
+    {
+        getOperator(pValue)
+        resp = calc_values[pValue]
+    }
+    if(pValue == 14)
+    {
+        toCalculate()
+        resp = calc_values[pValue]
+    }
+    if(pValue == 15)
+    {
+        !toDot()?
+            resp = calc_values[15]:
+            resp = "";
+    }
+    //toShow(resp)
+    
+    //log(resp)
+    //alert(resp)
+    //return log(pValue);
 };
 
 const toShow = (pValue, pVisor) => {
@@ -9,14 +34,11 @@ const toShow = (pValue, pVisor) => {
     pVisor.textContent = pValue;
 };
 
-const toPut = (pValuePrev, pValueAdd, pTog, pVisor) => {
-    if(pVisor == undefined){
-        pTog? toShow(pValuePrev + pValueAdd, pVisor):
-        toShow(pValueAdd, pVisor);
-    }else{
-        pTog? toShow(pValuePrev + pValueAdd, pVisor):
-        toShow(pValueAdd, pVisor);
-    }
+const toPut = (pValueAdd, pTog) => {
+    visor_Main.textContent == "0" &&
+    visor_Main.textContent.length == 1?
+        visor_Main.textContent = pValueAdd:
+        visor_Main.textContent += pValueAdd;
 };
 //#endregion
 
@@ -47,35 +69,28 @@ const toDel = () => {
 // [ 0 ~ 9 . = ]
 const getDigit = (e) => {
     e.stopPropagation()
-    let vDigit = e.currentTarget.value;
+    let vDigit = parseInt(e.currentTarget.value);
+    //log(vDigit)
     toCheck(vDigit);
 };
 
-const toDot = (pDot) =>{
+const toDot = () =>{
     let resp;
     visor_Main.textContent.includes(".")?
-        resp = "":
-        resp = ".";
+        resp = true:
+        resp = false;
     return resp;
 };
 
 // [ Operators ]
-const getOperator = (e) => {
-    let i;
-    let vOperator = getDigit(e);
-    let resp = visor_Main.textContent.slice(0, -4);
-    switch(vOperator)
+const getOperator = (pOperator) => {
+    switch(pOperator)
     {
-        case "divi": i = 3; break;
-        case "mult": i = 2; break;
-        case "subt": i = 1; break;
-        case "soma": i = 0; break;            
+        case 10: log("soma"); break;
+        case 11: log("subtracao"); break;
+        case 12: log("multiplicacao"); break;
+        case 13: log("divisao"); break;
     }
-    toZero();
-    let alg = new Algharism(resp); //alg.toLog();
-    toPut(0, alg.value + operator[i], false, visor_Sub)
-    toCreateAlgharism(alg.value);
-    toCreateAlgharism(operator[i]);
 };
 
 // [ Calculate ]
