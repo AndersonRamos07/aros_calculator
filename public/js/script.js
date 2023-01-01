@@ -6,13 +6,3 @@ let elementDOM = (pSelector, pType) => {
     else
         return document.querySelectorAll(pSelector)
 };
-
-let eventListener = (pVar, pType, pCallback) => {
-    pVar.addEventListener(pType, (e) => {
-        pCallback(e);
-    })
-};
-
-let handleTextContent = (pElement, pContent) => {
-     return pElement.textContent = pContent;
-}
