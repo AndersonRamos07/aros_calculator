@@ -2,10 +2,7 @@
 const toCheck = (pValue) =>{
     let resp;
     if(pValue == 9 || pValue < 9)
-    {
         toPut(calc_values[pValue], 0)
-        resp = "numeros: " + pValue
-    }
     if(pValue == 13 || pValue < 13 && pValue > 9)
     {
         getOperator(pValue)
@@ -21,6 +18,7 @@ const toCheck = (pValue) =>{
         !toDot()?
             resp = calc_values[15]:
             resp = "";
+        toPut(resp, 0)
     }
     //toShow(resp)
     
@@ -91,8 +89,20 @@ const getOperator = (pOperator) => {
         case 12: log("multiplicacao"); break;
         case 13: log("divisao"); break;
     }
+    toCreateAlgharism(visor_Main.textContent);
+    toCreateAlgharism(calc_values[pOperator]);
+    toZero();
 };
 
+const negativeOperation = (pValue) => {
+    if(visor_Main.textContent == "0" ||
+        visor_Main.textContent == 0)
+        {
+            log("com zero")
+           return pValue;
+        }
+     return log("sem 0")
+}
 // [ Calculate ]
 const toCalculate = () => {
     log("foi")
