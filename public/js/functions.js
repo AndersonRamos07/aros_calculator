@@ -68,7 +68,6 @@ const toDel = () => {
 const getDigit = (e) => {
     e.stopPropagation()
     let vDigit = parseInt(e.currentTarget.value);
-    //log(vDigit)
     toCheck(vDigit);
 };
 
@@ -82,15 +81,21 @@ const toDot = () =>{
 
 // [ Operators ]
 const getOperator = (pOperator) => {
+    let vMenos = calc_values[pOperator];
+    let resp = false;
     switch(pOperator)
     {
-        case 10: log("soma"); break;
-        case 11: log("subtracao"); break;
-        case 12: log("multiplicacao"); break;
-        case 13: log("divisao"); break;
+        case 10: log("soma"); resp = true; break;
+        case 11: log("subtracao"); resp = negativeOperation(vMenos); break;
+        case 12: log("multiplicacao"); resp = true; break;
+        case 13: log("divisao"); resp = true; break;
     }
-    toCreateAlgharism(visor_Main.textContent);
-    toCreateAlgharism(calc_values[pOperator]);
+    if(resp)
+    {
+        toCreateAlgharism(visor_Main.textContent);
+        toCreateAlgharism(vMenos);
+    }else{
+    }
     toZero();
 };
 
@@ -99,30 +104,13 @@ const negativeOperation = (pValue) => {
         visor_Main.textContent == 0)
         {
             log("com zero")
-           return pValue;
+           toPut(pValue, 0);
+           return false;
         }
-     return log("sem 0")
+     return true;
 }
 // [ Calculate ]
 const toCalculate = () => {
     log("foi")
     alert("eh doido!")
-};
-
-const toCreateAlgharism = (pValue) => {
-    let qtd = document.querySelectorAll('thead > td');
-    let algL = document.createElement('td');
-    let alg = document.createElement('td');
-    let titleL = document.querySelector('thead');
-    let linha = document.querySelector('tr');
-    
-    alg.append(pValue);
-    algL.append(qtd.length);
-    linha.append(alg);
-    titleL.append(algL);
-    
-    log(alg.textContent + " <algarismo>")
-    log(linha.textContent + " <linha>")
-    log(qtd.length + " <qtd.length>")
-    
 };
