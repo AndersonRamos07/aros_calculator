@@ -9,5 +9,6 @@ function toPunctuate (pArray){
 function toPutTable (){
     let vValue = visor_Main.textContent;
     let vAlgharism = new Algharism(vValue);
-    toCreateAlgharism(foi.get());
+    toCreateAlgharism(vAlgharism.get());
+    toZero();
 };
