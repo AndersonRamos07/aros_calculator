@@ -1,30 +1,23 @@
 //#region [ Visor ]
 const toCheck = (pValue) =>{
+    let calcValue = calc_values[pValue]
     let resp;
     if(pValue == 9 || pValue < 9)
-        toPut(calc_values[pValue], 0)
+        toPut(calcValue, 0)
     if(pValue == 13 || pValue < 13 && pValue > 9)
-    {
         getOperator(pValue)
-        resp = calc_values[pValue]
-    }
     if(pValue == 14)
     {
         toCalculate()
-        resp = calc_values[pValue]
+        resp = calcValue
     }
     if(pValue == 15)
     {
-        !toDot()?
-            resp = calc_values[15]:
+        !dotOrMinus(calcValue)?
+            resp = calcValue:
             resp = "";
-        toPut(resp, 0)
+        toPut(resp, 1)
     }
-    //toShow(resp)
-    
-    //log(resp)
-    //alert(resp)
-    //return log(pValue);
 };
 
 const toShow = (pValue, pVisor) => {
@@ -32,11 +25,13 @@ const toShow = (pValue, pVisor) => {
     pVisor.textContent = pValue;
 };
 
-const toPut = (pValueAdd, pTog) => {
-    visor_Main.textContent == "0" &&
-    visor_Main.textContent.length == 1?
-        visor_Main.textContent = pValueAdd:
-        visor_Main.textContent += pValueAdd;
+const toPut = (pValueAdd, pZero) => {
+    pZero == 1?
+    visor_Main.textContent += pValueAdd:
+        visor_Main.textContent == "0" &&
+        visor_Main.textContent.length == 1?
+            visor_Main.textContent = pValueAdd:
+            visor_Main.textContent += pValueAdd;
 };
 //#endregion
 
@@ -71,9 +66,9 @@ const getDigit = (e) => {
     toCheck(vDigit);
 };
 
-const toDot = () =>{
+const dotOrMinus = (point) =>{
     let resp;
-    visor_Main.textContent.includes(".")?
+    visor_Main.textContent.includes(point)?
         resp = true:
         resp = false;
     return resp;
@@ -86,7 +81,7 @@ const getOperator = (pOperator) => {
     switch(pOperator)
     {
         case 10: log("soma"); resp = true; break;
-        case 11: log("subtracao"); resp = negativeOperation(vMenos); break;
+        case 11: log("subt"); resp = negativeOperation(vMenos); break;
         case 12: log("multiplicacao"); resp = true; break;
         case 13: log("divisao"); resp = true; break;
     }
@@ -94,20 +89,14 @@ const getOperator = (pOperator) => {
     {
         toCreateAlgharism(visor_Main.textContent);
         toCreateAlgharism(vMenos);
-    }else{
+        toZero();
     }
-    toZero();
 };
 
 const negativeOperation = (pValue) => {
-    if(visor_Main.textContent == "0" ||
-        visor_Main.textContent == 0)
-        {
-            log("com zero")
-           toPut(pValue, 0);
-           return false;
-        }
-     return true;
+    let resp = dotOrMinus(pValue);
+       !resp? toPut(pValue, 0): log("negativar");
+    return resp;
 }
 // [ Calculate ]
 const toCalculate = () => {
